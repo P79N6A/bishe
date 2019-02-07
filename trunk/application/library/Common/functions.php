@@ -379,21 +379,27 @@ function get_client_ip($type = 0,$adv=false)
     return $ip[$type];
 }
 
+
 /**
- * XML编码 FROM ThinkPHP 系统函数库
- * @param mixed $data 数据
- * @param string $root 根节点名
- * @param string $item 数字索引的子节点名
- * @param string $attr 根节点属性
- * @param string $id   数字索引子节点key转换的属性名
- * @param string $encoding 数据编码
+ * 数据XML编码 FROM ThinkPHP 系统函数库
+ * @param mixed  $data 数据
+ * @param string $item 数字索引时的节点名称
+ * @param string $id   数字索引key转换为的属性名
  * @return string
  */
-function xml_encode($data, $root='root', $item='item', $attr='', $id='id', $encoding='utf-8') {
-    if(is_array($attr)){
-        $_attr = array();
-        foreach ($attr as $key => $value) {
-            $_attr[] = "{$key}=\"{$value}\"";ss
+function data_to_xml($data, $item='item', $id='id') {
+    $xml = $attr = '';
+    foreach ($data as $key => $val) {
+        if(is_numeric($key)){
+            $id && $attr = " {$id}=\"{$key}\"";
+            $key  = $item;
+        }
+        $xml    .=  "<{$key}{$attr}>";
+        $xml    .=  (is_array($val) || is_object($val)) ? data_to_xml($val, $item, $id) : $val;
+        $xml    .=  "</{$key}>";
+    }
+    return $xml;
+}
 
 /**
  * GET 请求 FROM wechat-php-sdk
