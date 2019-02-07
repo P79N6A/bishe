@@ -1,0 +1,115 @@
+.dllAddsales{ padding-top: 12px; padding: 0 0 30px 40px;  background-color: #fff; }
+.addsalesList{ padding-top: 12px;
+	li{ padding-top: 8px; }
+	.dllLabel{ font-size: 14px; color: #6d798c; float: left; line-height: 38px; width: 131px; height: 38px; overflow: hidden; padding-right: 14px; text-align: left;
+		em{ color: #e83632; }
+	}
+	.dllLabelauto{ width: auto; }
+	.dllCheckbox{ overflow: hidden; float: left; line-height: 38px;
+		.dllIcon01{ float: left; margin-top: 12px; margin-right: 5px;  }
+	}
+	.inputBox{ border: 1px solid #dcdde0; width: 444px; padding: 11px 0 11px 10px; border-radius: 3px; float: left; }
+	.dllTextarea{ width: 746px; height: 76px; font-size: 14px; color: #111; border: 1px solid #dcdde0; border-radius: 3px; padding: 12px 10px; resize: none; float: left; line-height: 26px; }
+	.promptText{ font-size: 12px; color: #bfc2c8; line-height: 38px; padding-left: 9px; float: left; }
+	.ty_btn_modify{ width: 80px; float: left; margin-top: 3px; }
+	.ty_select{ float: left; }
+	.ty_select{ margin-right: 9px; }
+	.w165{ width: 165px; }
+	.w456{ width: 456px; }
+	.w282{ width: 270px; }
+	.w306{ width: 306px; }
+	.w294{ width: 294px; }
+	.dllMl50{ margin-left: 50px; }
+}
+.dllBtn{ padding-top: 30px; 
+	.ty_btn_cancel{ margin-left: 7px; }
+}
+
+
+.dllBatch{
+	.addsalesList .dllLabel{ width: 75px; }
+	.dllBtn{ padding-left: 89px; }
+}
+
+.dllBtnAdd{ padding: 23px 0 23px 40px;
+	.ty_btn_confirm{ width: 93px;  margin-right: 7px; }
+}
+.dllTitBar{ line-height: 58px; border-bottom: 1px solid #edeef2; background-color: #fff;  padding: 0 40px;
+	.tit{ font-size: 18px; color: #1d334a; float: left; }
+	.dllDownload{ float: right; 
+		.dllDownloadBtn{ font-size: 12px; color: #7699cc; }
+		em{ color: #edeef2; padding: 0 8px; }
+	}
+}
+
+.dll_pricfloatbox{ background: #f7f7f7; border: 1px solid #dcdde0; border-radius: 3px; padding: 0 14px 14px 14px;  font-size: 14px;  margin-bottom: 10px; position: relative;
+	.ty_select{ width: 100%; margin-top: 20px; }
+	ul{ padding: 0; 
+		li{ padding: 0; }
+	}
+	.dll_pricetime{ padding-bottom: 18px; border-bottom: 1px solid #ededed;
+		li{ padding-top: 10px; }
+		.dll_labeltit{ color: #ed671f; display: inline-block; padding-right: 4px; }
+		.dll_titgray{ color: #656d78; }
+		.dll_timeinput{ width: 284px; border: 1px solid #dcdde0; background-color: #fff; padding: 8px 0 8px 10px; }
+		.dll_icon01{ position: absolute; right: 10px; top: 19px;  display: block; width: 14px; height: 14px; @extend .l_i; background-position: -24px -36px; }
+	}
+	.dll_pricebtn{margin-top: 15px; 
+		.dll_confirm,.dll_cancel{ border: 1px solid #fed4bc; color: #ff9961; font-size: 14px; padding: 3px 6px; background-color: #fff; display: inline-block; border-radius: 3px;  box-shadow: 0 1px 3px rgba(0,0,0,0.1); }
+		.dll_cancel{ border-color: #ced0d9;  color: #989dae;     box-shadow: 0 1px 3px rgba(0,0,0,0.1); }
+	}
+}
+.dll_pricechoice{ line-height: 34px; border-bottom: 1px solid #ededed;
+	.dll_labeltext{ color: #818b9b; float: left; }
+	.dll_checkbox{ color: #555;  float: right; padding-right: 28px;
+		input{ vertical-align: -2px;  }
+	}
+}
+.dll_pricebox{ border-bottom: 1px solid #ededed; padding-bottom: 10px;  padding-top: 7px;
+	h2{ color: #999; }
+	.dll_price{  width: 380px; padding-top: 3px;
+		li{ color: #818b9b; float: left;  margin-right: 12px; line-height: 34px; padding-top: 10px;  width: 178px;
+			label{ width: 56px; display: inline-block; }
+			input{ width: 68px; height: 34px; border: 1px solid #dcdde0; margin: 0 8px; text-align: center; }
+		}
+	}
+}
+.dll_priceoffice{
+	.dll_price{
+		li{ float: none; width: auto; 
+			label{ width: 98px; }
+		}
+	}
+	.dll_pricetime{
+		 .dll_labeltit{ width: 84px; padding-right: 22px; }
+		 .dll_timeinput{ width: 238px; }
+	}
+}
+
+
+.dll_fixed{ width: 100%; height: 100%; position: fixed; left: 0; top: 0; right: 0; bottom: 0; background-color: rgba(0,0,0,0.6); z-index: 999; }
+.dll_pop{ position: fixed; width: 505px; background-color: #fff;  padding-bottom: 62px;  z-index: 1000;
+	h2{ font-size: 14px; color: #a4a8b8; background-color: #fbfbfd; line-height: 42px; padding-left: 20px; }
+	.dll_housectype{ padding-top: 50px; 
+		.dll_type{ font-size: 14px; color: #363636; display: block; text-align: center; padding-top: 22px; }
+	}
+	.dll_btn{ text-align: center; margin-top: 50px;  
+		.dll_confirm, .dll_cancel{ width: 68px; height: 28px; border: 1px solid #cfd2da; background-color: #fbfbfd; color: #aeb1c0; font-size: 12px; border-radius: 2px; margin: 0 5px; } 
+		.dll_confirm{ border-color: #fd8d4e; background-color: #fd8d4e; color: #fff; }
+	}
+}
+.dll_abouthouse{ padding: 58px 0 0 78px; position: relative;
+	.dll_tit{ font-size: 14px; color: #6d798c; line-height: 38px; float: left; }	
+	.dll_houselist{float: left; position: relative; z-index: 100;
+		.dll_input{  border: 1px solid #dcdde0; padding: 11px 10px;  width: 214px; }
+		.dll_house{ left: 0; top: 37px;  position: absolute; width: 100%;     border: 1px solid #dcdde0;  box-sizing: border-box;
+			li{ line-height: 40px; background-color: #fff; padding-left: 10px; cursor: pointer; }
+		}
+	}
+}
+
+
+.dll_textareabox{margin-top: 50px; 
+	.dll_tit{  font-size: 14px; color: #6d798c;  float: left; padding-left: 20px; padding-top: 5px; }
+	.dll_textarea{float: left; width: 365px;   margin: 0 auto; display: block;   height: 116px;  border: 1px solid #dcdde0;  resize: none; padding: 10px; font-size: 14px; color: #666; }
+}

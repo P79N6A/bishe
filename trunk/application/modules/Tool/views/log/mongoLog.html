@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <link href="/bootstrapAce/css/bootstrap.min.css" rel="stylesheet" />
+        <link rel="stylesheet" href="/bootstrapAce/css/font-awesome.min.css" />
+        <link rel="stylesheet" href="/bootstrapAce/css/ace.min.css" />
+        <link rel="stylesheet" href="/bootstrapAce/css/ace-rtl.min.css" />
+        <link rel="stylesheet" href="/bootstrapAce/css/ace-skins.min.css" />
+        <script src="/bootstrapAce/js/ace-extra.min.js"></script>
+    </head>
+    <body>
+        <div class="page-content">
+
+            <div class="table-header">
+                mongo日志管理
+            </div>
+            <form action="" method="get">
+                <div class="form-group">
+                    类型：<select id="" class="" name='type'>
+                        <option value="">--请选择--</option>
+                        <!--{if $types}-->
+                        <!--{foreach key = k item = i from = $types}-->
+                        <option value="<!--{$i}-->" <!--{if $type==$i}-->selected<!--{/if}-->><!--{$i}--></option>
+                        <!--{/foreach}-->
+                        <!--{/if}-->
+                    </select> 
+                    等级名称：<select id="" class="" name='level_name'>
+                        <option value="">--请选择--</option>
+                        <!--{if $level_names}-->
+                        <!--{foreach key = k item = i from = $level_names}-->
+                        <option value="<!--{$i}-->" <!--{if $level_name==$i}-->selected<!--{/if}-->><!--{$i}--></option>
+                        <!--{/foreach}-->
+                        <!--{/if}-->
+                    </select>
+                    site:<input type="text" name="log_index_site" value="<!--{$log_index_site}-->" size="10"/>
+                    hid:<input type="text" name="log_index_hid" value="<!--{$log_index_hid}-->" size="10"/>
+
+                    开始时间:<input type="text" name="startTime" class="" value="<!--{$start_time}-->" />
+                    结束时间:<input type="text" name="endTime" class="" value="<!--{$end_time}-->" />
+                    <input type="hidden" name="page" class="" value="1" />
+                    <button type="submit" class="btn">提交</button>
+                </div> 
+            </form>
+
+            <div class="table-responsive">
+                <table id="sample-table-2" class="table table-striped table-bordered table-hover">
+                    <thead>
+                        <tr>
+                            <th class="center">
+                                <label>
+                                    <input type="checkbox" class="ace" />
+                                    <span class="lbl"></span>
+                                </label>
+                            </th>
+                            <th>错误信息</th>
+                            <th>类型</th>
+                            <th class="hidden-480">等级</th>
+                            <th class="hidden-480">等级名称</th>
+                            <th>
+                                <i class="icon-time bigger-110 hidden-480"></i>
+                                datetime
+                            </th>
+
+                            <th>详细信息</th>
+                        </tr>
+                    </thead>
+
+                    <tbody>
+                        <!--{if $data}-->
+                        <!--{foreach key = k item = i from = $data}-->
+                        <tr>
+                            <td class="center">
+                                <label>
+                                    <input type="checkbox" class="ace" />
+                                    <span class="lbl"></span>
+                                </label>
+                            </td>
+                            <td style="width: 167px;"><!--{$i.message}--></td>
+                            <td style="width: 128px;"><!--{if isset($i.context.type)}--><!--{$i.context.type}--><!--{/if}--></td>
+                            <td class="hidden-480" style="width: 37px;"><!--{$i.level}--></td>
+                            <td class="hidden-480" style="width: 79px;">
+                                <span class="label label-sm label-info arrowed arrowed-righ"><!--{$i.level_name}--></span>
+                            </td>
+                            <td style="width: 128px;"><!--{$i.datetime}--></td>
+                            <td><div style="width: 450px;word-break: break-all;"><!--{json_encode($i.context, JSON_UNESCAPED_UNICODE)}--></div></td>
+                        </tr>
+                        <!--{/foreach}-->
+                        <!--{/if}-->
+                    </tbody>
+                </table>
+                <div class="clearfix">
+                    <div class="b_pageBox clearfix z_pages">
+                        <!--{$pages}-->
+                    </div>
+                </div>
+            </div><!-- /.main-container-inner -->
+
+            <a href="#" id="btn-scroll-up" class="btn-scroll-up btn btn-sm btn-inverse">
+                <i class="icon-double-angle-up icon-only bigger-110"></i>
+            </a>
+        </div><!-- /.main-container -->
+
+        <div style="display:none"><script src='http://v7.cnzz.com/stat.php?id=155540&web_id=155540' language='JavaScript' charset='gb2312'></script></div>
+    </body>
+</html>

@@ -1,0 +1,32 @@
+<style>
+    td{border:solid #7c8395; border-width:0px 1px 1px 0px; padding:2px 0px;}
+    th{border:solid #7c8395; border-width:0px 1px 1px 0px; padding:2px 0px;}
+    table{border:solid #7c8395; border-width:1px 0px 0px 1px;}
+</style>
+<div>
+    <div style="width: 800px;margin: auto">
+        <table  cellspacing="0" style="width: 100%">
+            <caption>指定城市<!--{$site}-->－城市options比对</caption>
+            <tr>
+                <th width="25%" >id</th>
+                <th width="25%">mysql</th>
+                <th width="25%">redis</th>
+                <th width="25%">备注</th>
+            </tr>
+            <tr>
+                <td>总数</td>
+                <td><!--{$return.mysql_total_count}--></td>
+                <td><!--{$return.redis_total_count}--></td>
+                <td><!--{$return.msg}--></td>
+            </tr>
+            <!--{foreach $return.diff key=key item=item}-->
+            <tr>
+                <td><!--{$item.mysql}--></td>
+                <td><!--{$item.mysql}--></td>
+                <td><a href="/tool/redisdiff/hashdetail?redis_key=<!--{$item.redis_key}-->&hash_key=<!--{$item.hash_key}-->" target="_self"><!--{$item.redis}--></a></td>
+                <td><!--{$item.msg}--></td>
+            </tr>
+            <!--{/foreach  }-->
+        </table>
+    </div>
+</div>

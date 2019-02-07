@@ -1,0 +1,27 @@
+<style>
+    td{border:solid #7c8395; border-width:0px 1px 1px 0px; padding:2px 0px;}
+    th{border:solid #7c8395; border-width:0px 1px 1px 0px; padding:2px 0px;}
+    table{border:solid #7c8395; border-width:1px 0px 0px 1px;}
+</style>
+<div>
+    <div style="width: 800px;margin: auto">
+        <table  cellspacing="0" style="width: 100%">
+            <caption>指定城市<!--{$site}-->－楼盘价格hid比对</caption>
+            <tr>
+                <th width="25%" >hid</th>
+                <th width="25%">mysql(视频数量)</th>
+                <th width="25%">redis(视频数量)</th>
+                <th width="25%">备注</th>
+            </tr>
+
+            <!--{foreach $return key=key item=item}-->
+            <tr>
+                <td><!--{$item.hid}--></td>
+                <td><!--{$item.mysql}--></td>
+                <td><a href="/tool/redisdiff/hashdetail?redis_key=<!--{$item.redis_key}-->&hash_key=<!--{$item.hid}-->" target="_self"><!--{$item.redis}--></a></td>
+                <td><!--{$item.msg}--></td>
+            </tr>
+            <!--{/foreach  }-->
+        </table>
+    </div>
+</div>

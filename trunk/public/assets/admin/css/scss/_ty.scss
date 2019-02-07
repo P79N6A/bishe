@@ -1,0 +1,256 @@
+@charset "utf-8";
+.ty_body{ @extend %ty_body; }
+%oh_t{ overflow: hidden; white-space: nowrap; text-overflow:ellipsis }
+.ty_btn_confirm,.ty_btn_cancel,.ty_btn_modify{ display: inline-block; font-family: "宋体"; font-size: 12px; text-align: center; border-radius: 3px; cursor: pointer;vertical-align: middle; }
+.ty_btn_confirm{ width: 70px; height: 30px; line-height: 30px; background-color: #fd8c4e; color: #fff;   box-shadow: 0 1px 3px rgba(0,0,0,.1);border: none; 
+	&:hover{ background-color: #ff9f6a; }
+}
+.ty_btn_confirm_on{ background-color: #ff9f6a; }
+
+.ty_btn_cancel{ width: 68px; line-height: 28px; background-color: #fafafc; color: #989dae; box-shadow: 0 1px 3px rgba(0,0,0,.1); border: 1px solid #ced0d9; 
+	&:hover{ border: 1px solid #c7cfe8; color: #8598d7; }
+}
+.ty_btn_cancel_on{ border: 1px solid #c7cfe8; color: #8598d7; }
+
+.ty_btn_modify{ width: 68px; line-height: 28px; background-color: #fff; color: #ff9961; box-shadow: 0 1px 3px rgba(0,0,0,.1); border: 1px solid #ffd3bb;  
+	&:hover{ border: 1px solid #ffc2a1; color: #ff9156; }
+}
+.ty_btn_modify_on{ border: 1px solid #ffc2a1; color: #ff9156; }
+
+.ty_select{ width: 150px; height: 38px; display: inline-block; background-color: #fff;
+	.someInput,.someWord{ display: block; width: 100%; height: 36px; line-height: 36px;  border: 0; outline: none; color: #465974; font-family:'微软雅黑'; font-size: 14px; overflow: hidden;}
+	::-webkit-input-placeholder { color: #465974; } 
+	:-moz-placeholder { color: #465974; } 
+	::-moz-placeholder { color: #465974; }
+	:-ms-input-placeholder { color: #465974; } 
+	.open{ display: block; width: 28px; height: 36px; position: absolute; right: 0; top: 0; cursor: pointer; 
+		i{ display: block; @extend %ty_sp; width: 8px; height: 5px; position: absolute; right: 10px; top: 16px; }
+	}
+}
+.ty_showSelect{ border: 1px solid #dcdde0; padding:0 25px 0 10px; border-radius: 3px; position: relative; height: 36px;overflow: hidden;}
+.searchList{ height: 0; position: relative; z-index: 8; width: 100%; 
+	ul{ display: block; left: 0;right: 0; border: 1px solid #dcdde0; border-top: 1px solid #e9ecf5; position: absolute; top: -1px; z-index: 9; background: #fff; max-height: 362px; border-bottom-left-radius: 3px;border-bottom-right-radius: 3px; overflow-y: auto; }
+	li{ height: 36px; line-height: 36px; display: block; 
+	}
+	a{ display: block; padding: 0 10px; color: #8099bc; font-size: 14px;  @extend %oh_t;
+		&:hover{ background: #e8edfb; color: #4e82cc; }
+	}
+}
+
+.ty_header{ height: 79px; border-bottom: 1px solid #e6e6e6; @extend %ty_sp_line; background-position: 0 0; box-shadow: 0 6px 6px rgba(29,51,74,.06); overflow: hidden;  background-color: #fff; min-width: 1250px; }
+.ty_headerIn{ margin: 0 auto; line-height: 80px; @extend .clearfix;
+	.ty_logo,.ty_logo2{ float: left; height: 25px; @extend %ty_sp; margin: 27px 19px 0; }
+	.ty_logo{ width: 182px; background-position: 0 -80px; }
+	.ty_logo2{ width: 202px; background-position: 0 -305px; }
+}
+.ty_headerList{  text-align: center; float: left;
+	ul{ @extend .clearfix; }
+	li{ float: left; width: 116px; }
+	a{ display: block; color: #425571; font-size: 18px; 
+		&:hover{ color: #6887b5; }
+	}
+	.on{ @extend %ty_sp_line; background-position: 0 -80px; 
+		a{ color: #ea5300; font-weight: bold; 
+			&:hover{ color: #ea5300; }
+		}
+	}
+}
+.ty_HeaderRight{ float: right; padding-top: 2px; }
+.ty_person{ margin-right: 20px; font-size: 12px; color: #91949f;
+	a{ color: #91949f; }
+	.line{ display: inline-block; width: 1px; height: 11px; background-color: #e1e2e6; margin: 0 14px 0 13px;  }
+}
+.ty_icon_person{ display: inline-block; @extend %ty_sp; background-position: -18px 0; width: 12px; height: 12px; margin-right: 6px; vertical-align:-2px; *vertical-align: middle;}
+.ty_back_to{ display: inline-block; padding: 0 6px 0 13px; height: 38px; line-height: 38px; text-align: center; border-top-left-radius: 38px; border-bottom-left-radius: 38px; background-color: #e1e2e6; vertical-align: middle; color: #64666d; margin-top: -3px;
+	&:hover{ background-color: #e5e7f1; color: #6887b5; }
+}
+.ty_con{ min-width: 1250-220px; padding-left: 220px; zoom: 1; margin: 0 auto; overflow: hidden;min-height: 600px}
+.ty_left{ float: left; display: inline; width: 220px; margin-left: -220px; overflow: auto; padding-bottom: 10020px; margin-bottom: -10000px; }
+.ty_right{  width: 100%; padding-bottom: 10000px; margin-bottom: -10000px; overflow: hidden; position: relative;}
+.ty_navBar{
+	ul>li{ min-height: 64px; line-height: 64px; color: #fff; font-size: 14px;  cursor: pointer; position: relative;
+		a,span{ color: #cfd2e3; display: block; padding-left: 57px;
+			&:hover{ color: #fff }
+			>i{  width: 18px; height: 18px; position: absolute; left: 29px; top: 22px; }
+		}
+	}
+	.on{ background-color: #f57b38; 
+		.ty_icon_down{ display: none; }
+		>span{ color: #fff; }
+		>a{ color: #fff; }
+		.ty_navbarIn{ display: block; }
+	}
+}
+.ty_icon_BulidM i{ @extend %ty_sp; background-position: -36px -110px; }
+.on .ty_icon_BulidM,.ty_icon_BulidM:hover{
+	i{ background-position: -54px -110px; }
+}
+.ty_icon_BulidS i{ @extend %ty_sp; background-position: 0 -110px; }
+.on .ty_icon_BulidS,.ty_icon_BulidS:hover{
+	i{ background-position: -18px -110px; }
+}
+.ty_icon_KFSBJ i{ @extend %ty_sp; background-position: -72px -110px; }
+.on .ty_icon_KFSBJ,.ty_icon_KFSBJ:hover{
+	i{ background-position: -90px -110px; }
+}
+.ty_icon_Adv i{ @extend %ty_sp; background-position: -108px -110px; }
+.on .ty_icon_Adv,.ty_icon_Adv:hover{
+	i{ background-position: -126px -110px; }
+}
+.ty_icon_Sys i{ @extend %ty_sp; background-position: 0 -128px; }
+.on .ty_icon_Sys,.ty_icon_Sys:hover{
+	i{ background-position: -18px -128px; }
+}
+.ty_icon_City i{ @extend %ty_sp; background-position: -36px -128px; }
+.on .ty_icon_City,.ty_icon_City:hover{
+	i{ background-position: -54px -128px; }
+}
+.ty_icon_Find i{ @extend %ty_sp; background-position: -72px -128px; }
+.on .ty_icon_Find,.ty_icon_Find:hover{
+	i{ background-position: -90px -128px; }
+}
+.ty_icon_Ask i{ @extend %ty_sp; background-position: -108px -128px; }
+.on .ty_icon_Ask,.ty_icon_Ask:hover{
+	i{ background-position: -126px -128px; }
+}
+.ty_icon_Phone i{ @extend %ty_sp; background-position: 0 -146px; }
+.on .ty_icon_Phone,.ty_icon_Phone:hover{
+	i{ background-position: -18px -146px; }
+}
+.ty_icon_Tou i{ @extend %ty_sp; background-position: -36px -146px; }
+.on .ty_icon_Tou,.ty_icon_Tou:hover{
+	i{ background-position: -54px -146px; }
+}
+.ty_icon_Root i{ @extend %ty_sp; background-position: -72px -146px; }
+.on .ty_icon_Root,.ty_icon_Root:hover{
+	i{ background-position: -90px -146px; }
+}
+.ty_icon_Day i{ @extend %ty_sp; background-position: -108px -146px; }
+.on .ty_icon_Day,.ty_icon_Day:hover{
+	i{ background-position: -126px -146px; }
+}
+.ty_icon_Arc i{ @extend %ty_sp; background-position: 0 -164px; }
+.on .ty_icon_Arc,.ty_icon_Arc:hover{
+	i{ background-position: -18px -164px; }
+}
+
+.ty_icon_down{ @extend %ty_sp; position: absolute; display: block; width: 12px; height: 7px;  right: 19px; top: 29px; background-position: -36px 0; }
+.ty_navbarIn{ background-color: #2b2c30; display: none;
+	a{ color: #9da0af; 
+		&:hover{ font-weight: bold; }
+	}
+}
+.ty_titBar{ width: 100%; height: auto; @extend %ty_sp_line; background-position: 0 -160px; border-bottom: 1px solid #e8e9ed;
+	.tit{ height: 64px; line-height: 67px;  padding-left: 40px; font-size: 22px; color: #1d334a; font-weight: bold; }
+}
+.ty_bigTit{
+	.tit{ overflow: hidden; display: block; height: 70px; line-height: 70px; min-width: 1112px; font-size: 22px; color: #1d334a; font-weight: bold; padding-left: 47px; }
+}
+.tit_both{
+	.tit{  line-height: 71px; }
+	.ty_titBar_list{ line-height: 39px; }
+}
+.tit_single{
+	.ty_titBar_list{ height: 65px; line-height: 79px;
+		a{ height: 65px }
+	}
+}
+.ty_titBar_list{ padding-left: 40-18px; height: 44px; line-height: 44px;
+	li{ float: left; position: relative; }
+	a{ font-size: 14px; color: #425571; display: block; padding: 0 18px; height: 44px; }
+	.on{
+		a{ font-weight: bold; color: #ea5300; }
+		.line{ display: block; }
+	}
+	.line{ width: 50px; height: 2px; display: none; position: absolute; bottom: -1px; left: 50%; margin-left: -25px; background-color: #ff5a00; filter:alpha(opacity=60); -moz-opacity:0.6; opacity:0.6; }
+}
+// 1228新增
+.ty_othersp{
+	.ty_navbarIn{ display: block; }
+	.ty_navBar{
+		.on{ background-color: #f57b38; 
+			.ty_icon_down{ display: block; }
+		}
+	}
+	.searchList{ height: 0; position: relative; z-index: 8; width: 100%; 
+		ul{ max-height: 181px; }
+	}
+}
+
+.ty_icon2_Index i{ @extend %ty_sp; background-position: -36px -164px; }
+.on .ty_icon2_Index,.ty_icon2_Index:hover{
+	i{ background-position: -54px -164px; }
+}
+.ty_icon2_Act i{ @extend %ty_sp; background-position: -72px -164px; }
+.on .ty_icon2_Act,.ty_icon2_Act:hover{
+	i{ background-position: -90px -164px; }
+}
+.ty_icon2_User i{ @extend %ty_sp; background-position: -108px -164px; }
+.on .ty_icon2_User,.ty_icon2_User:hover{
+	i{ background-position: -126px -164px; }
+}
+
+.ty_form{ 
+	form{ padding:20px 0 20px 20px; }
+	.ty_lable{ float: left; }
+	.ty_btn_confirm{ margin: 4px 0 0 20px; }
+}
+.ty_formIn{ float: left; height: 38px; }
+.ty_lable{ float: left; color: #6d798c; font-size: 14px; padding-left: 20px; margin-right: 10px; line-height: 38px; }
+.ty_selectTime{ float: left; 
+	em{ float: left; line-height: 38px; font-size: 14px; color: #666; padding: 0 10px; }
+}
+.ty_selectTimeIn{ float: left; 
+	span{ display: block; padding-left: 11px; width: 119-11px; height: 36px; line-height: 36px; border: 1px solid #dcdde0; border-radius: 3px; background: #fff; position: relative; font-size: 14px; color: #465974; cursor: pointer; }
+}
+
+.ty_selectTimeIn_od input{width:180px;}
+.ty_icon2_time{ display: block; position: absolute; top: 10px; right: 10px; @extend %ty_sp; width: 14px; height: 14px; background-position: -24px -36px; }
+.ty_main{ background-color: #fff; border-top: 1px solid #e8e9ed; border-bottom:  1px solid #e8e9ed; margin-bottom: 20px; }
+.ty_tit_h3{ line-height: 60px; padding-left: 40px; font-weight: bold; color: #1d334a; font-size: 18px; border-bottom: 1px solid #edeef2; }
+.ty_detial{ padding: 0 40px; line-height: 54px; font-size: 14px; color: #465974; 
+	span{ color: #f47732; font-weight: bold; }
+}
+.ty_drawing{ padding: 0 40px 39px 40px; 
+	img{ display: block; }
+}
+.ty_drawingIn{  }
+.ty_drawingIns{ width: 448px; float: left; padding-left: 37px; border-top: 1px dashed #edeef2;}
+.ty_drawingInsL{ width: 465px; padding-left: 0; }
+.ty_tit_h4{ font-size: 18px; color: #1d334a; line-height: 58px; height: 58px; }
+.ty_drawingA{ border: 1px solid #ededed; width: 465-2px; height: 297px; }
+.ty_drawingAL{ float: left; width: 286px; }
+.ty_drawingAR{ float: left; background-color: #fcfcfd; height: 297px; }
+.ty_drawingART{ width: 177-38px; padding: 16px 0 0 38px; height: 155-16px; line-height: 20px; font-size: 12px; color: #465974; font-family: "宋体"; border-bottom: 1px solid #f1f1f8;
+	span{ color: #8189ad; font-family: "Verdana"; }
+	li{ position: relative; margin-bottom: 1px;
+		i{ position: absolute; display: block; width: 12px; height: 12px; top: 4px; *top: 0; left: -18px; border-radius: 2px; }
+	}
+	.red{ background-color: #fc6f76; }
+	.blue{ background-color: #5e98ff; }
+	.yellow{ background-color: #ffb300 }
+}
+.ty_DARBimg{ width: 176px; height: 90px; }
+.ty_DARBword{ font-size: 12px; color: #465974; font-family: "宋体"; padding-top: 8px;
+	ul{ width: 177px; }
+	li{ float: left; width: 88px; text-align: center; }
+	i{ display: inline-block; width: 12px; height: 12px; border-radius: 2px;vertical-align: -2px; *vertical-align: middle; margin-right:6px; }
+	.green1{ background-color: #3fae66; }
+	.green2{ background-color: #97c566; }
+	span{ color: #8189ad; font-family: "Verdana"; }
+}
+.ty_tit_h4SP{ border-bottom: 2px solid #f3f3f5; position: relative;
+	i{ display: block; position: absolute; left: 0; bottom: -2px; width: 34px; height: 2px; background-color: #393b48; }
+}
+.ty_drawingB{ width: 448px; height: 297px; }
+.ty_drawingBig{ border: 1px solid #ededed; width: 948px; }
+.ty_drawingBigT{ height: 44px; line-height: 44px; background-color: #f5f6fa; border-bottom: 1px solid #f3f3f3; text-align: right; 
+	span{ margin-right: 20px; font-size: 12px; color: #abb1cb; font-family: "宋体"; }
+	i{ display: inline-block; width: 12px; height: 12px;vertical-align: -2px; *vertical-align: middle; border-radius: 2px; margin-right:7px; }
+	.blue1{ background-color: #899fff; }
+	.blue2{ background-color: #45d6fe; }
+	.yellow1{ background-color: #ffc54f; }
+}
+.ty_drawingBigImg{ width: 948px; height: 403px; }
+
+.ty_warp_phone{ width: 414px; } 

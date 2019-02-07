@@ -1,0 +1,65 @@
+<style>
+    td{border:solid #7c8395; border-width:0px 1px 1px 0px; padding:2px 0px;}
+    th{border:solid #7c8395; border-width:0px 1px 1px 0px; padding:2px 0px;}
+    table{border:solid #7c8395; border-width:1px 0px 0px 1px;}
+    select{width: 150px}
+    input{width: 150px}
+</style>
+<div>
+    <div style="width: 800px;margin: auto;">
+        <a href="/tool/redisconsole/index">跳转至控制台命令面板</a>
+        <br/>
+        <br/>
+        <table cellspacing="0" style="width: 100%" >
+            <tr>
+                <td>
+                    数据类型：
+                </td>
+                <td>
+                    <select id="type_select">
+                        <option value="hash">hash</option>
+                        <option value="string">sting</option>
+                        <option value="list">list</option>
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <td>操作选择：</td>
+                <td>
+                    <select id="city_select">
+                        <option value="get">查看</option>
+                        <option value="update">修改</option>
+                        <option value="del">删除</option>
+                        <option value="add">添加</option>
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <td>redis_key：</td>
+                <td>
+                    <input type="text" id="redis_key">
+                </td>
+            </tr>
+            <tr>
+                <td>hash_key：</td>
+                <td>
+                    <input type="text" id="hash_key">
+                </td>
+            </tr>
+            <tr>
+                <td colspan="2" align="center"><a href="javascript:void(0)" id="init">提交</a></td>
+            </tr>
+        </table>
+        <br/><br/><hr/>
+        数据展示:
+        <div style="width: 100%" id="result">
+
+        </div>
+
+    </div>
+</div>
+<script src="/js/jquery.js"></script>
+<script>
+    $(function () {
+    })
+</script>

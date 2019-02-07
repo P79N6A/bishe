@@ -1,0 +1,91 @@
+// @import "../img";
+// @import "../font";
+// @mixin bgs($a,$b){
+// 	background-size:$a/2+px $b/2+px;
+// 	background: #f00;
+// 	width: 100px;
+// 	height: 100px;
+// }
+// @function Fem($a){
+// 	@return $a/14+em;
+// }
+// .bbs{ @include bgs(20,10);  font-size:20px; height:50px;}
+// .cc{ font-size: Fem(14);}
+// .cdd{ @extend %img1;}
+@charset "utf-8";
+/**
+* Description: style 
+* Developers: pinghai@leju.com
+**/
+.fl{ float: left;}
+.gl_pd0{ padding: 0!important;}
+.l_slBox .gl_w75{width:75px;padding-right:14px;}
+.ty_select.gl_w306{ width: 306px;}
+// .gl_dragsource img{ width:95px;height:95px; }
+.gl_container{position: relative;overflow:hidden;}
+.cimg{position: relative;}
+.gl_apwrap { /*width:960px; margin:0 0 0 5px;*/ background-color: #fff; }
+.gl_apf { width:937px; height:100px; padding:10px 0 10px 10px; overflow:auto;overflow-x:hidden; border:1px solid #aaa; position:relative;top:0;left:0;}
+.gl_apf div { width:85px; height:115px; margin-right:13px; margin-bottom:10px; border:1px solid #999; overflow: hidden; text-align: center;}
+.pw944,.pw628,.pw470,.pw312,.ph706,.ph470,.ph351,.ph233,.ph232{
+	float:left; background:#e1e7f2; margin:2px; display:inline;
+}
+.pw944{ width: 944px;}
+.pw628{ width: 628px;}
+.pw470{ width: 470px;}
+.pw312{ width: 312px;}
+.ph706{ height: 706px;}
+.ph470{ height: 470px;}
+.ph351{ height: 351px;}
+.ph233{ height: 233px;}
+.ph232{ height: 232px;}
+
+.gl_stylesel {}
+.gl_style_list{ width: 100%;
+	li{ position: relative; float: left; width: 140px; height: 150px; margin-right: 22px;}
+	.bg{ width: 140px; height: 106px; background:url(../images/gl_map.png) left top no-repeat;position: relative;
+		&.cur{
+			i{display: block;position: absolute;width: 140px;height: 106px;top:0;left: 0;background:url(../images/gl_map.png) no-repeat;background-position: -710px 0;}
+		}
+	}
+	.bg1{ background-position: 0px 0px;}
+	.bg2{ background-position: -142px 0px;}
+	.bg3{ background-position: -284px 0px;}
+	.bg4{ background-position: -426px 0px;}
+	.bg5{ background-position: -568px 0px;}
+	.bg6{ background-position: 0px -108px;}
+	.bg7{ background-position: -142px -108px;}
+	.bg8{ background-position: -284px -108px;}
+	.bg9{ background-position: -426px -108px;}
+	.bg10{ background-position: -568px -108px;}
+	.gl_s_mask{ display: none; position: absolute; left: -1px; top: -1px; z-index: 1; width: 140px; height: 106px;background:url(../images/gl_map.png) -710px 0 no-repeat;}
+	.cur .gl_s_mask{ display: block;}
+	.gl_cor{ text-align: center; height: 38px; line-height: 38px;
+		input{position: absolute; top: -9999px;}
+		i{ position: relative; top: -1px; display: inline-block; width: 14px; height: 14px; margin-right: 10px; background: url(../images/gl_map.png) -744px -109px no-repeat; vertical-align: middle;
+        }
+        .on{ background: url(../images/gl_map.png) -726px -109px no-repeat;}
+        input:checked+i{ background: url(../images/gl_map.png) -726px -109px no-repeat;
+        }
+	}
+
+}
+// 
+.gl_picconw { width:952px; height:714px; border:1px solid #f2f2f2;;}
+.gl_piccon{ width:948px; height:710px; margin:0 auto; padding:2px; background:#fff;
+	.mbnone{ /*height: 596px; */width: 474px; margin:0; background:none;}
+	.gl_control{ position: absolute; bottom: 20px; left: 50%; margin-left: -118px; width: 236px; height: 20px; background:rgba(54,54,54,.77); border-radius: 10px;z-index: 2;
+		span{float: left; width: 45px; text-align: center; color: #fff; line-height: 20px;}
+		.gzoomSlider{ position: relative; float: left; margin-top: 9px; height: 2px; font-size: 0;}
+		.ui-slider-horizontal .ui-slider-handle { margin-left: -5px; top: -5px; }
+		.ui-slider .ui-slider-handle { cursor: default;  position: absolute; width: 11px; height: 11px; z-index: 2; background:url(../images/gl_map.png) -711px -109px no-repeat;}
+		.gl_jind{ background-color: #fd965f; height: 2px; float: left;}
+	}
+}
+// 暂时无用 S
+.gl_stylesel a { float:left; display:inline-block; margin-left:13px; width:80px; height:98px; outline:none;}
+.ablb { left:2px; bottom:2px; z-index:999;}
+.picconw #a{ margin:23px 0 0 100px; font-size:20px;}
+.picconw #b{ margin:5px 0 0 50px; font-size:20px;}
+.loading{position:relative;width:300px;top:0px;left:50%;margin-left:-150px;text-align:center;padding:7px 0 0 0;font:bold 11px Arial, Helvetica, sans-serif;}
+// 暂时无用 E

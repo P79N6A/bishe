@@ -1,0 +1,86 @@
+<style>
+    td{border:solid #7c8395; border-width:0px 1px 1px 0px; padding:2px 0px;}
+    th{border:solid #7c8395; border-width:0px 1px 1px 0px; padding:2px 0px;}
+    table{border:solid #7c8395; border-width:1px 0px 0px 1px;}
+    select{width: 150px}
+    input{width: 150px}
+</style>
+<div>
+    <div style="width: 800px;margin: auto;">
+        <table cellspacing="0" style="width: 100%" >
+            <tr>
+                <td>
+                    表选择：
+                </td>
+                <td>
+                    <select id="type_select">
+                        <option value="house">house表</option>
+                        <option value="broadcast">house_broadcast表</option>
+                        <option value="impression">house_impression表</option>
+                        <option value="directvideo">house_direct_video表</option>
+                        <option value="video">house_video表</option>
+                        <option value="pricesuite">house_price_suite表</option>
+                        <option value="score">house_internal_home_score表</option>
+                        <option value="config">house_config表</option>
+                        <option value="options">house_options表</option>
+                        <option value="order">hosue_order表</option>
+                        <option value="city">city表</option>
+                        <option value="developer">developer表</option>
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <td>城市选择：</td>
+                <td>
+                    <select id="city_select">
+                            <option value="">所有</option>
+                        <!--{foreach $city_list key=key item=item}-->
+                            <option value="<!--{$item.city_en}-->"><!--{$item.city_en_cn}--></option>
+                        <!--{/foreach}-->
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <td>ｈｉｄ输入</td>
+                <td>
+                    <input type="text" id="hid">
+                </td>
+            </tr>
+            <tr>
+                <td>调用方式：</td>
+                <td>
+                    <select id="exec_type">
+                        <option value="web">web</option>
+                        <option value="cli">cli</option>
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <td colspan="2" align="center"><a href="javascript:void(0)" id="init">初始化</a></td>
+            </tr>
+        </table>
+    </div>
+</div>
+<script src="/js/jquery.js"></script>
+<script>
+    $(function () {
+        $('#init').click(function () {
+            var type = $('#type_select').val();
+            var site = $('#city_select').val();
+            var hid = $('#hid').val();
+            var exec_type = $('#exec_type').val();
+
+            if(exec_type == 'web'){
+                var href = '/cron/houseinit/';
+                href = href+type+'?';
+                if(site){
+                    href = href+'site='+site;
+                    if(hid){
+                        href = href+'&hid='+hid;
+                    }
+                }
+                window.open(href);
+            }
+        })
+    })
+</script>

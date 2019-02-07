@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<link href="/bootstrapAce/css/bootstrap.min.css" rel="stylesheet" />
+		<link rel="stylesheet" href="/bootstrapAce/css/font-awesome.min.css" />
+		<link rel="stylesheet" href="/bootstrapAce/css/ace.min.css" />
+		<link rel="stylesheet" href="/bootstrapAce/css/ace-rtl.min.css" />
+		<link rel="stylesheet" href="/bootstrapAce/css/ace-skins.min.css" />
+		<script src="/bootstrapAce/js/ace-extra.min.js"></script>
+	</head>
+	<body>
+					<div class="page-content">
+						<div class="page-header">
+							<h1>
+								进程管理(测试开发中)
+							</h1>
+						</div><!-- /.page-header -->
+						<div class="row">
+							<div class="col-xs-12">
+								<!-- PAGE CONTENT BEGINS -->
+								<div class="row">
+									<div class="col-xs-12">
+										<div class="table-responsive">
+											<table id="sample-table-1" class="table table-striped table-bordered table-hover">
+												<thead>
+													<tr>
+														<th width="10%">redis_key</th>
+														<th  width="10%">待执行数</th>
+														<th  width="10%">进程状态</th>
+														<th  width="10%">进程id</th>
+														<th  width="30%">操作</th>
+													</tr>
+												</thead>
+												<tbody>
+											<!--{foreach key = k item = i from = $list}-->
+													<tr>
+														<td>
+															<a href="queueDetails?queue=<!--{$i.name}-->">
+																<!--{$k}--></a>
+														</td>
+														<td><!--{$i.count}--></td>
+														<td >
+															<!--{if $i.status == 'error'}-->
+															<span class="label label-sm label-warning">stop</span>
+															<!--{else}-->
+															<span class="label label-sm label-success">run</span>
+															<!--{/if}-->
+														</td>
+														<td><!--{$i.pid}--></td>
+														<td>
+															<a href="startRun?type=<!--{$i.function}-->">
+															<button id="run">后台运行</button>
+															</a>
+															<a href="stopRun?process=<!--{$i.pid}-->">
+															<button id="stop">停止进程</button>
+															</a>
+															
+														</td>
+													</tr>
+												<!--{/foreach}-->
+												</tbody>
+											</table>
+										</div><!-- /.table-responsive -->
+									</div><!-- /span -->
+								</div><!-- /row -->
+								<div class="hr hr-18 dotted hr-double"></div>
+			</div><!-- /.main-container-inner -->
+		</div><!-- /.main-container -->
+		<!-- basic scripts -->
+		<!--[if !IE]> -->
+		<!-- <script src="http://ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script> -->
+		<!-- <![endif]-->
+
+		<!--[if IE]>
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+<![endif]-->
+
+		<!--[if !IE]> -->
+
+		<script type="text/javascript">
+			window.jQuery || document.write("<script src='/bootstrapAce/js/jquery-2.0.3.min.js'>"+"<"+"/script>");
+		</script>
+
+		<!-- <![endif]-->
+
+		<!--[if IE]>
+<script type="text/javascript">
+ window.jQuery || document.write("<script src='/bootstrapAce/js/jquery-1.10.2.min.js'>"+"<"+"/script>");
+</script>
+<![endif]-->
+
+		<script type="text/javascript">
+			if("ontouchend" in document) document.write("<script src='/bootstrapAce/js/jquery.mobile.custom.min.js'>"+"<"+"/script>");
+		</script>
+		<script src="/bootstrapAce/js/bootstrap.min.js"></script>
+		<script src="/bootstrapAce/js/typeahead-bs2.min.js"></script>
+
+		<!-- page specific plugin scripts -->
+
+		<script src="/bootstrapAce/js/jquery.dataTables.min.js"></script>
+		<script src="/bootstrapAce/js/jquery.dataTables.bootstrap.js"></script>
+
+		<!-- ace scripts -->
+
+		<script src="/bootstrapAce/js/ace-elements.min.js"></script>
+		<script src="/bootstrapAce/js/ace.min.js"></script>
+
+		<!-- inline scripts related to this page -->
+
+		<script type="text/javascript">
+			jQuery(function($) {
+				var oTable1 = $('#sample-table-2').dataTable( {
+				"aoColumns": [
+			      { "bSortable": false },
+			      null, null,null, null, null,
+				  { "bSortable": false }
+				] } );
+				
+				
+				$('table th input:checkbox').on('click' , function(){
+					var that = this;
+					$(this).closest('table').find('tr > td:first-child input:checkbox')
+					.each(function(){
+						this.checked = that.checked;
+						$(this).closest('tr').toggleClass('selected');
+					});
+						
+				});
+			
+			
+				$('[data-rel="tooltip"]').tooltip({placement: tooltip_placement});
+				function tooltip_placement(context, source) {
+					var $source = $(source);
+					var $parent = $source.closest('table')
+					var off1 = $parent.offset();
+					var w1 = $parent.width();
+			
+					var off2 = $source.offset();
+					var w2 = $source.width();
+			
+					if( parseInt(off2.left) < parseInt(off1.left) + parseInt(w1 / 2) ) return 'right';
+					return 'left';
+				}
+			})
+		</script>
+	<div style="display:none"></div>
+</body>
+</html>

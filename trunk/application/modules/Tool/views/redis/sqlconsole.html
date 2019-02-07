@@ -1,0 +1,59 @@
+<htm>
+    <body>
+        <div>
+            <div style="width: 800px;margin: auto;">
+                <!--<a href="/index.php/tool/redisconsole/select">跳转至控制台选择面板</a>-->
+                <br/>
+                <br/>
+                <div class="top">
+                    sql输入：
+                    <input type="text" id="cmd" size="50"  style="height: 24px" placeholder="此处输入sql" value="select hid,name from house where site = 'bj'  limit 10">
+                    <button id="sub">提交</button>
+                    <br>
+                </div>
+                <hr/>
+                <div class="center" >
+                    命令返回展示:
+                    <div >
+                    <textarea id="result" style="width: 100%;height: 790px">
+
+                    </textarea>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <script src="/js/jquery.js"></script>
+        <script>
+            $(function () {
+                $('#sub').click(function () {
+                    cmd();
+                })
+                $('#cmd').keyup(function (e) {
+                    var key = e.which;
+                    if (key == 13) {
+                        cmd();
+                    }
+                })
+                $('#host').change(function () {
+                    cmd();
+                })
+
+                function cmd() {
+                    var cmd = $('#cmd').val();
+                    var host = $('#host').val();
+                    if (cmd) {
+                        var url = '/tool/sqlconsole/cmd?cmd='+encodeURIComponent(cmd);
+                        $('#result').html('等待中..........');
+                        $.ajax({
+                            url:url,
+                            success:function (msg) {
+                                $('#result').html(msg);
+                            }
+                        })
+                    }
+                }
+                $('#sub').click();
+            })
+        </script>
+    </body>
+</htm>

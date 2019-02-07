@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>API Testing....</title>
+
+    <style type="text/css">
+        ::selection{ background-color: #E13300; color: white; }
+        ::moz-selection{ background-color: #E13300; color: white; }
+        ::webkit-selection{ background-color: #E13300; color: white; }
+        html {
+            min-height: 100%;
+            height:100%;
+        }
+        body {
+            background-color: #fff;
+            margin: 40px;
+            font: 13px/20px normal Helvetica, Arial, sans-serif;
+            color: #4F5155;
+            height:100%;
+        }
+
+        a {
+            color: #003399;
+            background-color: transparent;
+            font-weight: normal;
+        }
+
+        h1 {
+            color: #444;
+            background-color: transparent;
+            border-bottom: 1px solid #D0D0D0;
+            font-size: 19px;
+            font-weight: normal;
+            margin: 0 0 14px 0;
+            padding: 14px 15px 10px 15px;
+        }
+
+        code {
+            font-family: Consolas, Monaco, Courier New, Courier, monospace;
+            font-size: 12px;
+            background-color: #f9f9f9;
+            border: 1px solid #D0D0D0;
+            color: #002166;
+            display: block;
+            margin: 14px 0 14px 0;
+            padding: 12px 10px 12px 10px;
+        }
+
+        #body{
+            margin: 0 15px 0 15px;
+        }
+
+        p.footer{
+            text-align: right;
+            font-size: 11px;
+            border-top: 1px solid #D0D0D0;
+            line-height: 32px;
+            padding: 0 10px 0 10px;
+            margin: 20px 0 0 0;
+            clear:both;
+        }
+
+        #container{
+            margin: 10px;
+            border: 1px solid #D0D0D0;
+            -webkit-box-shadow: 0 0 8px #D0D0D0;
+        }
+
+        #left_div{
+            float:left;
+            width:440px;
+        }
+
+        #right_div{
+            margin-left: 450px;
+        }
+
+        #contents_div {
+            margin-top:20px;
+        }
+
+        #custom_account_div {
+            display: none;
+        }
+
+        #gets_div , #gets_div_new{
+            border: 1px solid #D0D0D0;
+            margin-bottom: 10px;
+            padding:10px;
+        }
+        .c{clear:both;margin:0;padding:0;width:0;height:0;overflow:hidden;}
+        .d{border:1px red dotted;}
+    </style>
+    <script src="/js/jquery.js"></script>
+    <script src="/js/form.js"></script>
+    <script src="/js/json2.js"></script>
+</head>
+<body>
+
+<div id="container">
+    <h1>欢迎使用乐居API测试程序 - Fixed By Zhao</h1>
+    <form action="/tool/testapi/apitestresult" name="testform" id="testform" method="POST">
+        <div id="body">
+            <div id="url_div">
+                API分类: <select name="apigroup" id="apigroup"></select>
+                API名称: <select name="apiname" id="apiname"></select>
+                &nbsp;&nbsp;<input type="button" id="submit_test" value="提交" />
+                <div style="display:none;" id="api_hidden_desc"></div>
+                <br/><br/>
+                API URL:<input type="text" name="apiurl_new" id="apiurl_new" size="100" url_base="http://api.house.leju.com/api/" value="http://api.house.leju.com/api/" /> <span id="api_wiki_new"></span> <br/>
+
+            </div><!-- #url_div/ -->
+            <div id="contents_div">
+                <div id="left_div">
+                    <font color="blue">API 版本:</font> 新版 <br/>
+                    <div id="gets_div_new">
+                        <span>GET 参数</span> <input type="button" id="addgets_new" value="新增" />   <br/>
+                        <div id="gets_div_args_new">
+
+                        </div>
+                    </div>
+
+                </div><!-- #left_div/ -->
+                <div id="right_div" class="">
+                    返回结果　　<br />
+                    <div style="width:100%;height:100%;">
+                        <textarea id="results_new" style="width:49%;float:left;height:600px"></textarea>
+                        <div class="c"></div>
+
+                    </div>
+                    <div id="results_html" style="display:none; overflow: hidden; float: left; width: 650px;"></div>
+                </div><!-- #right_div -->
+                <div class="c"></div>
+            </div>
+        </div><!-- #body/ -->
+        <div class="c"></div>
+    </form>
+    <div class="c"></div>
+</div>
+<p class="footer"><span class="footer">API excute in <strong class="api_new_excutetime" style="color: #00be67"></strong> seconds</span></p>
+</body>
+<script type="text/javascript">
+    //单击增加ｇｅｔ参数
+    $("#addgets_new").click(function() {
+        $("#gets_div_args_new").append('<div><input type="button" class="removeclass" value="-" />Key: <input type="text" name="getkey_new[]" size="10" /> val: <input type="text" name="getval_new[]" size="18" /><br/></div>');
+    });
+
+
+    //绑定提交按钮
+    $("#submit_test").click(function() {
+        $("#testform").submit();
+        return false;
+    });
+
+    //绑定表单提交处理
+    $("#testform").ajaxForm({
+        success: function(msg) {
+
+            $("#results").show();
+            $("#results_html").hide();
+            if(msg.data_new.length > 0){
+                if(msg.apiurl_new){
+                    $("#results_new").val(msg.apiurl_new +'\n'+msg.data_new);
+                }else{
+                    $("#results_new").val(msg.data_new);
+                }
+            }
+
+            $('.api_new_excutetime').text(msg.exec_time_new);
+            return false;
+        }
+    });
+    $(document).ready(function(){
+
+        //ａｐｉ分组绑定change事件
+        $("#apigroup").change(function (){
+            updateapiname();
+        });
+
+        //api_list绑定change事件
+        $("#apiname").change(function (){
+            update_wiki($(this).get(0).selectedIndex);//更新ｗｉｋｉ地址
+            update_controller($(this).get(0).selectedIndex);//更新controller
+            update_get_args($(this).get(0).selectedIndex);//更新get参数
+        });
+
+        //－号绑定点击事件，当点击－号时候去掉参数行
+        $("#left_div").on("click",".removeclass",function(){
+            $(this).parent().remove();
+        });
+
+        //获得ａｐｉ分组ｌｉｓｔ
+        updateapigroup();
+    });
+
+
+    //获得ａｐｉ分组ｌｉｓｔ
+    function updateapigroup(){
+        $("#apigroup").html("");
+        $.getJSON( "/tool/testapi/getapilist?source=apigroup", function( data ) {
+            $.each( data.k, function( key, val ) {
+                $("#apigroup").append("<option value='"+key+"'>"+val+"</option>");
+            });
+            updateapiname();
+        });
+    }
+
+    //获得指定分组ａｐｉ_list
+    function updateapiname() {
+        var apigroup = $("#apigroup").val();
+        $("#apiname").html("");
+        $.getJSON( "/tool/testapi/getapilist?source=apilist"+"&apigroup="+apigroup, function( data ) {
+            var api_wiki_new = "";
+            var api_controller = "";
+            var api_action = "";
+            var api_get_args_new = "";
+            console.log(data);
+
+            $.each( data.k, function( key, val ) {
+                $("#apiname").append("<option value=''>"+val.new.action+" => "+val.new.name+"</option>");
+                if (val.new.wiki)
+                    api_wiki_new += "<span id='api_wiki_new_"+key+"'>"+val.new.wiki+"</span>";
+                if (val.new.controller)
+                    api_controller += "<span id='api_controller_"+key+"'>"+val.new.controller+"</span>";
+                if (val.new.action)
+                    api_action += "<span id='api_action_"+key+"'>"+val.new.action+"</span>";
+                if (val.new.get_args)
+                    api_get_args_new += "<span id='api_get_args_new_"+key+"'>"+JSON.stringify(val.new.get_args)+"</span>";
+            });
+            $('#api_hidden_desc').empty();
+
+            $('#api_hidden_desc').append(api_get_args_new);
+            $('#api_hidden_desc').append(api_wiki_new);
+            $('#api_hidden_desc').append(api_controller);
+            $('#api_hidden_desc').append(api_action);
+
+            $("#apiname").change();
+        });
+    }
+
+
+    //给ａｐｉ赋值ｇｅｔ参数
+    function update_get_args(index){
+        //2.然后更新新版本的
+        var args = $("#api_get_args_new_"+index).text();
+        args = JSON.parse(args);
+        var str = '';
+        $.each(args,function (index,value) {
+            str += '<div><input type="button" class="removeclass" value="-" />Key: <input type="text" name="getkey_new[]" value="'+index+'" size="10" /> val: <input type="text" name="getval_new[]" value="'+value+'" size="18" /> <br/> </div>'
+        })
+        $('#gets_div_args_new').html(str);
+    }
+
+
+    //给ａｐｉ赋值ｗｉｋｉ参数
+    function update_wiki(index) {
+        //更新新版本ｗｉｋｉ
+        var wiki = $("#api_wiki_new_"+index).text();
+        var str = '';
+        if (wiki.length > 0){
+            str = "<a href='"+wiki+"' target='_blank'>wiki</a>";
+        }else{
+            str = '';
+        }
+        $('#api_wiki_new').html(str);
+    }
+
+    function update_controller(index) {
+        var controller = $("#api_controller_"+index).text();
+        var action = $("#api_action_"+index).text();
+        var url = $('#apiurl_new').attr('url_base')
+        $('#apiurl_new').val(url+controller+'/'+action);
+    }
+
+</script>
+</html>

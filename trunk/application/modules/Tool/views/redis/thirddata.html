@@ -1,0 +1,101 @@
+<style>
+    td{border:solid #7c8395; border-width:0px 1px 1px 0px; padding:2px 0px;}
+    th{border:solid #7c8395; border-width:0px 1px 1px 0px; padding:2px 0px;}
+    table{border:solid #7c8395; border-width:1px 0px 0px 1px;}
+    select{width: 100px}
+</style>
+<div>
+    <div style="margin: auto;">
+        <table cellspacing="0" style="width: 100%" >
+            <!--{foreach $apiList key=key item=item}-->
+            <tr>
+                <td>
+                    选择接口：
+                    <select id="api_select" name="api">
+                        <!--{foreach $item.api key=k item=i}-->
+                        <option value="<!--{$k}-->" class="api_option"><!--{$i}--></option>
+                        <!--{/foreach}-->
+                    </select>
+                    
+                </td>
+                <td>
+                    选择类型：
+                    <select id="type_select" name="type">
+                        <!--{foreach $type key=k1 item=i1}-->
+                        <option value="<!--{$i1}-->"><!--{$i1}--></option>
+                        <!--{/foreach}-->
+                    </select>
+                </td>
+                <td>
+                    <select id="stype_select" name="submit_type">
+                        <option value="web">web</option>
+                        <option value="cli">cli</option>
+                    </select>
+                </td>
+                <td><input type='submit' value="运行接口"><input type="hidden" name="action" value="<!--{$key}-->"></td>
+            </tr>
+            <!--{/foreach}-->
+        </table>
+    </div>
+</div>
+<script src="/js/jquery.js"></script>
+<script>
+    $(function(){
+        $('select').on('change', function(){
+            var _val = $(this).find('option:selected').val();
+            var city_select = $(this).next('select').html();
+            if(_val=='esf_info' && !city_select){
+                var city_list = <!--{json_encode($city_list)}-->;
+                var str = '<select id="city_select" name="city">';
+                str += '<option value="">选择城市</option>';
+                $.each(city_list, function(name,val){ 
+                    str += '<option value="'+val.city_en+'">'+val.city_cn+'</option>';
+                }); 
+                str += '</select>';
+                $(this).parent().append(str);
+            }else if(_val!='esf_info' && city_select){
+                $(this).next('select').remove();
+            }
+            
+        });
+        $('input').click(function () {
+            var tr = $(this).closest('tr')
+            var data = {};
+            var city_list = {};
+            data['api'] = tr.find('select[name=api]').val();
+            data['type'] = tr.find('select[name=type]').val();
+            data['action'] = tr.find('input[name=action]').val();
+            tr.find('select[name=city]').val()?data['site'] = tr.find('select[name=city]').val():'';
+            var submit_type = tr.find('select[name=submit_type]').val();
+            if(submit_type=='web'){
+                var url = '/other/'+data['action']+'/index?api='+data['api']+'&type='+data['type'];
+                if(data['site']){
+                    url += '&site='+data['site']
+                }
+                window.open(url);
+            }else if(submit_type='cli'){
+                $.ajax({
+                    url: '/tool/thirddata/api',
+                    data: data,
+                    type: 'post',
+                    success: function (e) {
+                        var datajson = jQuery.parseJSON(e);
+                        if(datajson.status == 1)
+                        {
+                            myalert_href(datajson.msg,href)
+                            return false;
+                        }
+                        else 
+                        {
+                            myalert(datajson.msg);
+                            return false;
+
+                        }  
+                    }
+                })
+            }
+            
+
+        })
+    })
+</script>

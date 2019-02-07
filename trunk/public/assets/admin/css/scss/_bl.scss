@@ -1,0 +1,180 @@
+@charset "utf-8";
+.b_right { background-color: #f2f3f8;}
+.b_search { background-color: #f2f3f8; padding: 20px 40px; border-top: 1px solid #e8e9ed;
+	.b_searchList { @extend .clearfix; float: left; margin-right: 10px;
+		li { float: left; color: #6d798c; font-size: 14px; line-height: 38px; margin-right: 20px;}
+		.b_inp { margin-left: 10px; width: 158px; vertical-align: middle;}
+		.inp01 { text-align: center; width: 28px; margin-right: 5px;}
+	}
+	.ty_select { margin-left: 10px; *display: inline; vertical-align: middle;}
+	.ty_btn_confirm.btn01 { margin-right: 10px;}
+	.ty_btn_confirm { margin-top: 5px;}
+	.list01 { margin-right: 0;
+		.ty_select { width: 250px;}
+	}
+	.tip { font-size: 14px; color: #999; line-height: 38px;}
+}
+.b_inp { background-color: #fff; border: 1px solid #dcdde0; color: #465974; border-radius: 3px; padding: 0 10px; height: 36px; line-height: 36px; font-size: 14px; font-family: "微软雅黑";}
+.b_title { color: #1d334a; font-weight: bold; font-size: 18px; height: 61px; line-height: 61px; border-bottom: 1px solid #edeef2; padding-left: 40px;}
+.b_conBox { background-color: #fff; border-bottom: 1px solid #e8e9ed; padding-bottom: 30px;
+	&.b_conBox_pb { padding-bottom: 20px; margin-bottom: 20px;}
+	&.b_conBox_pb0 { padding-bottom: 0; margin-bottom: 20px;}
+	&.b_conBox_borMt { margin: 20px 0 20px 0; border-top: 1px solid #e8e9ed;}
+	&.b_conBox_nopb { padding-bottom: 0;
+		.b_con02 { padding-bottom: 0;}
+	}
+}
+.b_tit { float: none; color: #111; padding-left: 6px; cursor: pointer; font-size: 14px;}
+.b_opt { margin: 0; vertical-align: -2px; cursor: pointer;}
+
+//回收站
+.b_tableBox { background-color: #fff; padding-bottom: 20px;
+	table { width: 100%; border-top: 1px solid #e8e9ed;
+		thead { background-color: #fafafc; height: 45px; line-height: 45px; font-size: 12px; color: #6d798c;}
+		th,td { text-align: center;}
+		td { border-right: 1px solid #f8f8f8; border-bottom: 1px solid #f8f8f8; height: 64px; line-height: 24px; font-size: 12px; color: #465974;word-break:break-all;}
+		.last { border-right: none;}
+		a { color: #7699cc; font-size: "宋体";
+			&:hover { color: #3c81e5;}
+		}
+		.del { margin-right: 16px;}
+	}
+}
+.b_pageBox { text-align: right; margin-top: 18px; padding: 0 40px;overflow: hidden;
+	.total { font-size: 12px; color: #6d798c; font-family: "宋体"; line-height: 28px; float: left;
+		strong { color: #ff8b4c; font-weight: bold; margin: 0 6px 0 9px;}
+	}
+}
+.b_pages { overflow: hidden;
+	a { line-height: 26px; color: #465974; font-weight: bold; min-width: 18px;padding:0 5px; height: 26px; text-align: center; border: 1px solid #e3e3e3; border-radius: 3px; display: inline-block; margin-right: 8px;vertical-align: middle;
+		&:hover { color: #ff8b4c; border-color: #ff8b4c;}
+	}
+	.on { background-color: #ff8b4c; color: #fff; border-color: #ff8b4c;
+		&:hover { color: #fff;}
+	}
+	.first,.last { color: #6d798c; font-weight: normal; width: 54px;}
+	.prev,.next {
+		i { width: 0; height: 0; border-top: 4px solid transparent;border-right: 5px solid #465974;border-bottom: 4px solid transparent;display: block;margin:9px auto;}
+	}
+	.next i { border-right: none;border-left: 5px solid #465974;}
+	span { display: inline-block; margin-right: 6px;}
+}
+
+.b_titSelect { font-weight: normal; width: 250px; margin-left: 44px; vertical-align: 3px;*display: inline;*vertical-align: text-bottom; position: relative;
+	.someWord { font-size: 14px;}
+}
+
+//广告设置
+.b_con,.b_con01 { padding: 20px 40px 0;}
+.b_textarea { border: 1px solid #d6d6d6; border-radius: 3px; resize: none; padding-left: 10px; box-sizing: border-box; line-height: 21px; height: 102px;}
+.b_item {
+	&.b_item_nomar { margin-bottom: 0;}
+}
+.b_list {
+	li { margin-bottom: 12px; font-size: 14px; color: #111; line-height: 33px;}
+	.txtBox { width: 100%; height: 94px;}
+	.b_textarea { width: 100%; height: 94px;}
+}
+.b_btns { padding-top: 8px;
+	.btn01 { margin-right: 10px;}
+}
+.b_btns_pt { padding-top: 22px;}
+
+
+//公告信息
+.b_label { font-size: 14px; color: #6d798c; margin-right: 14px; line-height: 38px; min-width: 70px; float:left;}
+.b_item { margin-bottom: 8px; color: #111; font-size: 14px; line-height: 38px;
+	.tip { font-size: 12px; color: #bfc2c8; margin-left: 12px; display: inline-block; vertical-align: top;}
+	label { @extend .b_label;}
+	.b_inp { width: 294px; color: #111;}
+	.b_textarea { width: 792px; color: #999; font-size: 14px; line-height: 26px; padding: 10px 0 10px 10px; vertical-align: top;}
+	.ty_btn_modify { margin: 10px 0 0 14px; width: 58px; box-shadow: none;}
+	.inp04 { width: 434px;}
+}
+.b_item_mt { margin: 15px 0 5px 0;}
+.b_list01 { width: 824px;}
+.b_list01,.b_list02 { overflow: hidden;
+	li { width: 206px; float: left; line-height: 30px;}
+	input { @extend .b_opt;}
+	label { @extend .b_tit;}
+}
+
+// 添加新城区
+.b_con01 .b_item label { min-width: 84px; margin-right: 15px;}
+.b_list01 li label { @extend .b_tit;}
+.b_list02 {
+	li { width: 86px; margin-bottom: 4px;
+		label { @extend .b_tit;}
+	}
+}
+.b_btns_pt13 { padding-top: 21px;}
+
+//用户组权限
+.b_select { width: 316px;
+	span.someWord { margin-left: 0;}
+}
+.b_list03 { overflow: hidden;
+	li { margin-bottom: 12px;}
+	input { @extend .b_opt;}
+	h3 {
+		label { margin: 0;@extend .b_tit;}
+		span { margin: 0 0 0 15px;}
+	}
+	h4 { line-height: 20px;
+		label { line-height: 20px; @extend .b_tit;}
+		span { margin: 0; width: 160px; display: inline-block;}
+	}
+}
+.b_btns_pt6 { padding-top: 6px;}
+
+//用户权限
+.b_select01 { width: 425px;
+	span.someWord { margin-left: 0; color: #111;}
+}
+.b_addrBox { overflow: hidden; width: 825px;
+	.list { @extend .clearfix; margin-bottom: 18px;
+		li { width: 206px; float: left; line-height: 32px;}
+		label { @extend .b_tit; line-height: 32px;}
+		input { @extend .b_opt;}
+	}
+}
+.b_addrCon { margin-top: 18px;
+	h3 { color: #ff9961;line-height: 24px;}
+}
+
+//环线管理
+.b_lineBox { background-color: #fafafc; border: 1px solid #e8e9ed; margin: 20px 20px 0; position: relative; padding: 0 20px 26px; 
+	h2 { font-size: 18px; color: #1d334a; font-weight: bold; height: 61px; line-height: 61px; border-bottom: 1px solid #edeef2; margin-bottom: 16px;}
+	.b_btns { padding: 6px 0 0 84px;}
+	.b_item { margin-bottom: 10px;}
+	.tran { width: 15px; height: 8px; @extend %ty_sp; background-position: 0 -184px; position: absolute; top: -8px; left: 763px;}
+}
+.b_conBox.b_conBox_pb0 .b_con02 { background-color: #f2f3f8; padding-bottom: 20px;
+	.b_search { padding-bottom: 0;}
+}
+
+//大区设置
+.b_con03 { padding: 16px 40px 0; font-size: 0;
+	.label { color: #111; font-size: 14px; margin-right: 20px;}
+	.ty_btn_modify { margin-top: 0;}
+	.cardBox { border: 1px dashed #e9e9e9; margin: 18px 0 0 66px; padding: 10px 30px 24px; width: 824px;
+		label { @extend .b_label;}
+		.b_btns_pt { padding-top: 18px;}
+	}
+	.b_list01 li { line-height: 34px; height: 34px;
+		label { @extend .b_tit; line-height: 34px;}
+	} 
+	.b_item label { margin-right: 24px;}
+}
+.b_list001 { @extend .clearfix; width: 950px;
+	li { float: left; margin: 0 42px 14px 0; *margin-right: 20px;}
+	p { color: #111; font-size: 14px; line-height: 44px;
+		span { color: #6d798c;}
+	}
+	.b_inp { width: 410px; border-color: #d6d6d6; color: #111; font-family: "Arial"; height: 32px; line-height: 32px;}
+}
+.ty_select .searchList .s_sIndex li.selectCityList{
+	float: none;
+	margin-right: 0;
+	line-height: 36px;
+}

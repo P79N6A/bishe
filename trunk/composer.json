@@ -1,0 +1,25 @@
+{
+  "require": {
+    "illuminate/database": "*"
+  },
+  "autoload": {
+    "psr-4": {
+      "App\\Jobs\\": "application/jobs",
+      "App\\Models\\": "application/models",
+      "App\\Controllers\\": "application/controllers",
+      "App\\Admin\\Controllers\\": "application/modules/Admin/controllers",
+      "App\\Admin\\Models\\": "application/modules/Admin/models",
+      "App\\Tool\\Controllers\\": "application/modules/Tool/controllers",
+      "App\\Api\\Controllers\\": "application/modules/Api/controllers",
+      "App\\Other\\Controllers\\": "application/modules/Other/controllers",
+      "App\\Othercompany\\Controllers\\": "application/modules/Othercompany/controllers",
+      "App\\Sphinx\\Controllers\\": "application/modules/Sphinx/controllers"
+    }
+  },
+  "repositories": {
+    "packagist": {
+      "type": "composer",
+      "url": "https://packagist.phpcomposer.com"
+    }
+  }
+}

@@ -1,0 +1,35 @@
+<style>
+    td{border:solid #7c8395; border-width:0px 1px 1px 0px; padding:2px 0px;}
+    th{border:solid #7c8395; border-width:0px 1px 1px 0px; padding:2px 0px;}
+    table{border:solid #7c8395; border-width:1px 0px 0px 1px;}
+</style>
+<div>
+    <div style="width: 800px;margin: auto;">
+        <table  cellspacing="0" style="width: 100%" >
+            <caption>城市config分城市比对</caption>
+            <tr>
+                <th width="20%" >总数\城市</th>
+                <th width="20%">mysql数据</th>
+                <th width="20%">redis数据</th>
+                <th width="20%">备注</th>
+                <th width="20%">操作</th>
+            </tr>
+            <tr>
+                <td >总数</td>
+                <td ><!--{$return.mysql_total_count}--></td>
+                <td ><!--{$return.redis_total_count}--></td>
+                <td ><!--{$return.msg}--></td>
+                <td><a href="/cron/houseinit/config" target="_blank">全部重新初始化</a></td>
+            </tr>
+            <!--{foreach $return.diff key=key item=item}-->
+            <tr>
+                <td style="cursor: pointer"><a href="/tool/redisdiff/configsite?site=<!--{$key}-->" target="_self"><!--{$key}--></a></td>
+                <td><!--{$item.mysql_count}--></td>
+                <td><!--{$item.redis_count}--></td>
+                <td><!--{$item.msg}--></td>
+                <td><a href="/cron/houseinit/config?site=<!--{$key}-->" target="_blank">初始化</a></td>
+            </tr>
+            <!--{/foreach}-->
+        </table>
+    </div>
+</div>

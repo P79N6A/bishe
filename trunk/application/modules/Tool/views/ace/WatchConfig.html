@@ -1,0 +1,80 @@
+<style>
+    td{border:solid #7c8395; border-width:0px 1px 1px 0px; padding:2px 0px;}
+    th{border:solid #7c8395; border-width:0px 1px 1px 0px; padding:2px 0px;}
+    table{border:solid #7c8395; border-width:1px 0px 0px 1px;}
+</style>
+<div>
+    <div style="width: 800px;margin: auto;">
+        <table  cellspacing="0" style="width: 100%" >
+            <caption>配置文件对比</caption>
+            <tr>
+                <th>键值</th>
+                <th width="25%">cli配置</th>
+                <th width="25%">环境变量配置</th> 
+            </tr>
+            <!--{foreach $data.database key=key item=item}-->
+            <tr>
+                <td><!--{$key}--></td>
+                <td><!--{$item}--></td>
+
+                <td><!--{$data.con_database.$key}--></td>
+            </tr>
+            <!--{/foreach}-->
+            <tr>
+                <th>居里键值</th>
+                <th width="25%">cli配置</th>
+                <th width="25%">环境变量配置</th>
+            </tr>
+            <!--{foreach $data.juli key=key item=item}-->
+            <tr>
+                <td><!--{$key}--></td>
+                <td><!--{$item}--></td>
+
+                <td><!--{$data.con_juli.$key}--></td>
+            </tr>
+            <!--{/foreach}-->
+            <tr>
+                <th>mongodb键值</th>
+                <th width="25%">cli配置</th>
+                <th width="25%">环境变量配置</th>
+            </tr>
+            <!--{foreach $data.mongodb key=key item=item}-->
+            <tr>
+                <td><!--{$key}--></td>
+                <td><!--{$item}--></td>
+
+                <td><!--{$data.con_mongodb.$key}--></td>
+            </tr>
+            <!--{/foreach}-->
+
+            <tr>
+                <th>redis键值</th>
+                <th width="25%">cli配置</th>
+                <th width="25%">环境变量配置</th>
+            </tr>
+             <!--{foreach $data.redis key=key item=item}-->
+            <tr>
+                <td><!--{$key}--></td>
+                <td><!--{$item}--></td>
+
+                <td><!--{$data.con_redis.$key}--></td>
+            </tr>
+            <!--{/foreach}-->
+            <tr>
+                <th>memcached键值</th>
+                <th width="25%">cli配置</th>
+                <th width="25%">环境变量配置</th>
+            </tr>
+          <!--{foreach $data.memcached key=key item=item}-->
+            <tr>
+                <td><!--{$key}--></td>
+                <td><!--{$item}--></td>
+
+                <td><!--{$data.con_memcached.$key}--></td>
+            </tr>
+            <!--{/foreach}-->
+
+            
+        </table>
+    </div>
+</div>

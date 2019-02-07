@@ -1,0 +1,649 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+
+    <title>{{$data.city_info.city_cn}}新房_{{$data.city_info.city_cn}}新楼盘，开盘信息，新房房价 - {{$data.city_info.city_cn}}乐居</title>
+    <meta name="keywords" content="{{$data.city_info.city_cn}}新房,{{$data.city_info.city_cn}}开盘信息,{{$data.city_info.city_cn}}买房,{{$data.city_info.city_cn}}新楼盘,{{$data.city_info.city_cn}}新房网">
+    <meta name="description" content="{{$data.city_info.city_cn}}乐居新房频道为您提供2018年最新{{$data.city_info.city_cn}}楼盘排行，{{$data.city_info.city_cn}}楼盘价格信息，让您及时了解{{$data.city_info.city_cn}}新楼盘最新动态，专注为购房者提供丰富全面最佳新房购房体验，想了解最新楼盘信息就上{{$data.city_info.city_cn}}乐居！">
+    <meta http-equiv="Cache-Control" content="no-transform " /> 
+    <link rel="stylesheet" href="http://cdn.leju.com/data_house/V2/build/css/1118houseSecond.css">
+    <!-- <link rel="stylesheet" href="css/1118houseSecond.css"> -->
+    <!--<link type="text/css" rel="stylesheet"  href="http://house.leju.com/css/201509/city_index.css" source="widget"/>-->
+
+    <link rel="canonical"  href="{{$canonical}}" />
+
+
+    <script type="text/javascript">
+        (function(w){
+            w.pageInfo = {
+                city: "{{$data.city_info.city_en}}",
+                citycode: "{{$data.city_info.city_code}}",
+                citycn: "{{$data.city_info.city_cn}}",
+                citypub:"{{$data.city_info.city_pub}}",
+            }
+        })(window);
+
+    </script>
+
+</head>
+<body>
+<!-- 搜索页页头 -->
+{{include file="layout/housenav.html"}}
+
+<div class="l_wrap clearfix">
+    <div class="z_crumbs">
+        <a href="http://house.leju.com/" target="_blank">乐居房产</a>
+        <span class="line">\</span>
+        <a href="{{$smarty.const.ITEM_URL}}/{{$data.city_info.city_code}}/" class="cur">{{$data.city_info.city_cn}}新房</a></div>
+    <div class="l_left">
+        <div class="b_right">
+            <h2><a href="{{$smarty.const.ITEM_URL}}/{{$data.city_info.city_code}}/#wt_source=pc_phb_phrb">
+                {{$data.city_info.city_cn}}新房排行榜</a><i></i></h2>
+            <div class="b_slid">
+                <h3>乐居特色榜</h3>
+                <p>
+                    {{if $data.kaipan}}
+                    <a href="{{$smarty.const.ITEM_URL}}/{{$data.city_info.city_code}}/kaipan/#wt_source=pc_phb_ljtsb">本月开盘</a>
+                    {{/if}}
+                    <a href="{{$smarty.const.ITEM_URL}}/{{$data.city_info.city_code}}/new/#wt_source=pc_phb_ljtsb">最新楼盘</a>
+                    <a href="{{$smarty.const.ITEM_URL}}/{{$data.city_info.city_code}}/hot/#wt_source=pc_phb_ljtsb" >热门楼盘</a>
+                    {{if $data.search_top}}
+                    <a href="{{$smarty.const.ITEM_URL}}/{{$data.city_info.city_code}}/search_top/#wt_source=pc_phb_ljtsb" >搜索热榜</a>
+                    {{/if}}
+                    {{if $data.fitment_good}}
+                    <a href="{{$smarty.const.ITEM_URL}}/{{$data.city_info.city_code}}/fitment_good/#wt_source=pc_phb_ljtsb" >精装修</a>
+                    {{/if}}
+                    <!--<a href="{{$smarty.const.ITEM_URL}}/{{$data.city_info.city_code}}/pinpai_list/#wt_source=pc_phb_ljtsb" >高性价比</a>
+                    <a href="{{$smarty.const.ITEM_URL}}/{{$data.city_info.city_code}}/nearby_trackline/#wt_source=pc_phb_ljtsb">地铁沿线</a>
+                    <a href="{{$smarty.const.ITEM_URL}}/{{$data.city_info.city_code}}/edu_good/#wt_source=pc_phb_ljtsb" >教育地产</a>-->
+                    {{if $data.region_listmonthly_clicks}}
+                    <a href="{{$smarty.const.ITEM_URL}}/{{$data.city_info.city_code}}/region_listmonthly_clicks/#wt_source=pc_phb_ljtsb" >本月精选</a>
+                    {{/if}}
+                    {{if $data.reside_3_month}}
+                    <a href="{{$smarty.const.ITEM_URL}}/{{$data.city_info.city_code}}/reside_3_month/#wt_source=pc_phb_ljtsb" >3个月入住</a>
+                    {{/if}}
+                    {{if $data.esf_city_code}}
+                    <a href="http://{{$data.esf_city_code}}.esf.leju.com/community/" target="_blank" >二手房</a></p>
+                    {{/if}}
+            </div>
+            <div class="b_slid">
+                <h3>楼盘户型榜</h3>
+                <p>
+                    <a href="{{$smarty.const.ITEM_URL}}/{{$data.city_info.city_code}}/rtype1/#wt_source=pc_phb_lphxb" >一居</a>
+                    <a href="{{$smarty.const.ITEM_URL}}/{{$data.city_info.city_code}}/rtype2/#wt_source=pc_phb_lphxb"  >两居</a>
+                </p>
+            </div>
+            <div class="b_slid">
+                <h3>楼盘价格榜</h3>
+                <p>
+                    {{foreach $data.price_range key=key item=item}}
+                    {{if $item@iteration < 10}}
+                    <a href="{{$smarty.const.ITEM_URL}}/{{$data.city_info.city_code}}/price_range/{{$item.id}}/#wt_source=pc_phb_lpjgb" >{{$item.name}}</a>
+                    {{/if}}
+                    {{/foreach}}
+                    <a href="{{$smarty.const.ITEM_URL}}/{{$data.city_info.city_code}}/month_return_3k/#wt_source=pc_phb_lpjgb" >月供3000元以内</a>
+                </p>
+            </div>
+        </div>
+        <!--<div class="b_right01" id="LJ_module_kft">
+            <h2>免费看房团<span>已有<em class="num">32</em>人报名本次看房团</span><i></i></h2>
+            <div class="b_main">
+                &lt;!&ndash; 下拉被触发 &ndash;&gt;
+                &lt;!&ndash; <div class="b_selWrapper b_selWrapper_focus"> &ndash;&gt;
+                <div class="b_selWrapper">
+                    <div class="selBox">
+                        <span>2016年11月26日会响秋冬</span>
+                        <i></i>
+                    </div>
+                    &lt;!&ndash; 下拉菜单 &ndash;&gt;
+                    &lt;!&ndash; <ul style="display:block;"> &ndash;&gt;
+                    <ul>
+                        <li><a href="#">2016年11月26日会响秋冬</a></li>
+                        <li><a href="#">2016年11月26日会响秋冬</a></li>
+                        <li><a href="#">2016年11月26日会响秋冬</a></li>
+                        <li><a href="#">2016年11月26日会响秋冬</a></li>
+                        <li><a href="#">2016年11月26日会响秋冬</a></li>
+                        <li><a href="#">2016年11月26日会响秋冬</a></li>
+                        <li><a href="#">2016年11月26日会响秋冬</a></li>
+                        <li><a href="#">2016年11月26日会响秋冬</a></li>
+                        <li><a href="#">2016年11月26日会响秋冬</a></li>
+                    </ul>
+                </div>
+
+                <div class="b_selWrapper01">
+                    <div class="selBox">
+                        <span>京东线</span>
+                        <i></i>
+                    </div>
+                    <ul>
+                        <li><a href="#">京东线</a></li>
+                        <li><a href="#">京东线</a></li>
+                        <li><a href="#">京东线</a></li>
+                    </ul>
+                </div>
+                <p>途径路线：<a href="#">新空港孔雀城</a><a href="#">廊坊孔雀城</a><a href="#">廊坊</a><a href="#">孔雀城公园</a></p>
+                <a href="#" class="b_btn">我要报名</a>
+            </div>
+        </div>-->
+        <!--<div class="b_right02 pb">
+            <h2><a href="http://{{$data.city_info.city_pub}}.leju.com/scan/#wt_source=pc_phb_lpjgb_more" class="more01" target="_blank">更多<em></em></a>楼讯排行<i></i></h2>
+            <ul class="b_dateList clearfix" id="LJ_new_rank_tab">
+                <li class="cur" data-index="0"><a href="javascript:void(0)" target="_self" ><i></i>日</a></li>
+                <li data-index="1"><a href="javascript:void(0)" target="_self"><i></i>周</a></li>
+                <li data-index="2"><a href="javascript:void(0)" target="_self"><i></i>月</a></li>
+            </ul>
+            <div id="LJ_new_rank_con"></div>
+        </div>-->
+    </div>
+
+    <div class="l_main">
+        {{if $data.kaipan}}
+        <div class="z_list_wrap">
+            <h2 class="z_main_hd"><i class="line"></i>本月开盘<a href="{{$smarty.const.ITEM_URL}}/{{$data.city_info.city_code}}/kaipan/#wt_source=pc_phb_list_more" class="more" title="更多">更多<i></i></a></h2>
+            <div class="z_sug_list">
+                <ul class="clearfix">
+                    {{foreach $data.kaipan key=key item=item}}
+                    <li>
+                        <a href="{{$smarty.const.ITEM_URL}}/{{$data.city_info.city_code}}{{$item.hid}}/#wt_source=pc_phb_list_lpxx">
+                            <div class="pic">
+                                <img src="{{$item.house_cover}}" alt="{{$item.name}}" width="190" height="143">
+                                <i class="txt_mask"></i>
+                                <span class="address"><i class="adr_icon"></i><em>[{{$item.district}}]</em>{{$item.address|truncate:10:"..."}}</span>
+
+                                <div class="z_ys_lab_wrap">
+                                    <span class="z_ys_lab">预售证</span>
+                                    <div class="z_mask-1">
+                                        <div class="maskCon">
+                                            <i></i>
+                                            <p>{{$item.licence}}</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="info_wrap">
+                                <p class="info1" title="{{$item.opentime}}">开盘：{{$item.opentime}}</p>
+                                <p class="price"><em>{{$item.price_display.price_type}}{{$item.price_display.price}}</em><i>{{$item.price_display.unit}}</i></p>
+                                <p class="time time1">更新时间：<em>{{$item.price_display.price_time|date_format:"%G-%m-%d"}}</em></p>
+                            </div>
+                        </a>
+                    </li>
+                    {{/foreach}}
+                </ul>
+            </div>
+        </div>
+        {{/if}}
+
+        <div class="z_list_wrap">
+            <h2 class="z_main_hd"><i class="line"></i>最新楼盘<a href="{{$smarty.const.ITEM_URL}}/{{$data.city_info.city_code}}/new/#wt_source=pc_phb_list_more" class="more" title="更多">更多<i></i></a></h2>
+            <div class="z_sug_list">
+                <ul class="clearfix">
+                    {{foreach $data.new key=key item=item}}
+                    <li>
+                        <a href="{{$smarty.const.ITEM_URL}}/{{$data.city_info.city_code}}{{$item.hid}}/#wt_source=pc_phb_list_lpxx">
+                            <div class="pic">
+                                <img src="{{$item.house_cover}}" alt="{{$item.name}}" width="190" height="143">
+                                <i class="txt_mask"></i>
+                                <span class="address"><i class="adr_icon"></i><em>[{{$item.district}}]</em>{{$item.address|truncate:10:"..."}}</span>
+
+                                <div class="z_ys_lab_wrap">
+                                    <span class="z_ys_lab">预售证</span>
+                                    <div class="z_mask-1">
+                                        <div class="maskCon">
+                                            <i></i>
+                                            <p>{{$item.licence}}</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="info_wrap">
+                                <p class="info1" title="{{$item.opentime}}">开盘：{{$item.opentime}}</p>
+                                <p class="price"><em>{{$item.price_display.price_type}}{{$item.price_display.price}}</em><i>{{$item.price_display.unit}}</i></p>
+                                <p class="time time1">更新时间：<em>{{$item.price_display.price_time|date_format:"%G-%m-%d"}}</em></p>
+                            </div>
+                        </a>
+                    </li>
+                    {{/foreach}}
+                </ul>
+            </div>
+        </div>
+
+        <div class="z_list_wrap">
+            <h2 class="z_main_hd"><i class="line"></i>热门楼盘<a href="{{$smarty.const.ITEM_URL}}/{{$data.city_info.city_code}}/hot/#wt_source=pc_phb_list_more" class="more" title="更多">更多<i></i></a></h2>
+            <div class="z_sug_list">
+                <ul class="clearfix">
+                    {{foreach $data.hot key=key item=item}}
+                    <li>
+                        <a href="{{$smarty.const.ITEM_URL}}/{{$data.city_info.city_code}}{{$item.hid}}/#wt_source=pc_phb_list_lpxx">
+                            <div class="pic">
+                                <img src="{{$item.house_cover}}" alt="{{$item.name}}" width="190" height="143">
+                                <i class="txt_mask"></i>
+                                <span class="address"><i class="adr_icon"></i><em>[{{$item.district}}]</em>{{$item.address|truncate:10:"..."}}</span>
+
+                                <div class="z_ys_lab_wrap">
+                                    <span class="z_ys_lab">预售证</span>
+                                    <div class="z_mask-1">
+                                        <div class="maskCon">
+                                            <i></i>
+                                            <p>{{$item.licence}}</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="info_wrap">
+                                <p class="info1" title="{{$item.opentime}}">开盘：{{$item.opentime}}</p>
+                                <p class="price"><em>{{$item.price_display.price_type}}{{$item.price_display.price}}</em><i>{{$item.price_display.unit}}</i></p>
+                                <p class="time time1">更新时间：<em>{{$item.price_display.price_time|date_format:"%G-%m-%d"}}</em></p>
+                            </div>
+                        </a>
+                    </li>
+                    {{/foreach}}
+                </ul>
+            </div>
+        </div>
+
+        {{if $data.search_top}}
+        <div class="z_list_wrap">
+            <h2 class="z_main_hd"><i class="line"></i>搜索热榜<a href="{{$smarty.const.ITEM_URL}}/{{$data.city_info.city_code}}/search_top/#wt_source=pc_phb_list_more" class="more" title="更多">更多<i></i></a></h2>
+            <div class="z_sug_list">
+                <ul class="clearfix">
+                    {{foreach $data.search_top key=key item=item}}
+                    <li>
+                        <a href="{{$smarty.const.ITEM_URL}}/{{$data.city_info.city_code}}{{$item.hid}}/#wt_source=pc_phb_list_lpxx">
+                            <div class="pic">
+                                <img src="{{$item.house_cover}}" alt="{{$item.name}}" width="190" height="143">
+                                <i class="txt_mask"></i>
+                                <span class="address"><i class="adr_icon"></i><em>[{{$item.district}}]</em>{{$item.address|truncate:10:"..."}}</span>
+
+                                <div class="z_ys_lab_wrap">
+                                    <span class="z_ys_lab">预售证</span>
+                                    <div class="z_mask-1">
+                                        <div class="maskCon">
+                                            <i></i>
+                                            <p>{{$item.licence}}</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="info_wrap">
+                                <p class="info1" title="{{$item.opentime}}">开盘：{{$item.opentime}}</p>
+                                <p class="price"><em>{{$item.price_display.price_type}}{{$item.price_display.price}}</em><i>{{$item.price_display.unit}}</i></p>
+                                <p class="time time1">更新时间：<em>{{$item.price_display.price_time|date_format:"%G-%m-%d"}}</em></p>
+                            </div>
+                        </a>
+                    </li>
+                    {{/foreach}}
+                </ul>
+            </div>
+        </div>
+        {{/if}}
+
+        {{if $data.region_listmonthly_clicks}}
+        <div class="z_list_wrap">
+            <h2 class="z_main_hd"><i class="line"></i>本月精选<a href="{{$smarty.const.ITEM_URL}}/{{$data.city_info.city_code}}/region_listmonthly_clicks/#wt_source=pc_phb_list_more" class="more" title="更多">更多<i></i></a></h2>
+            <div class="z_sug_list">
+                <ul class="clearfix">
+                    {{foreach $data.region_listmonthly_clicks key=key item=item}}
+                    <li>
+                        <a href="{{$smarty.const.ITEM_URL}}/{{$data.city_info.city_code}}{{$item.hid}}/#wt_source=pc_phb_list_lpxx">
+                            <div class="pic">
+                                <img src="{{$item.house_cover}}" alt="{{$item.name}}" width="190" height="143">
+                                <i class="txt_mask"></i>
+                                <span class="address"><i class="adr_icon"></i><em>[{{$item.district}}]</em>{{$item.address|truncate:10:"..."}}</span>
+
+                                <div class="z_ys_lab_wrap">
+                                    <span class="z_ys_lab">预售证</span>
+                                    <div class="z_mask-1">
+                                        <div class="maskCon">
+                                            <i></i>
+                                            <p>{{$item.licence}}</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="info_wrap">
+                                <p class="info1" title="{{$item.opentime}}">开盘：{{$item.opentime}}</p>
+                                <p class="price"><em>{{$item.price_display.price_type}}{{$item.price_display.price}}</em><i>{{$item.price_display.unit}}</i></p>
+                                <p class="time time1">更新时间：<em>{{$item.price_display.price_time|date_format:"%G-%m-%d"}}</em></p>
+                            </div>
+                        </a>
+                    </li>
+                    {{/foreach}}
+                </ul>
+            </div>
+        </div>
+        {{/if}}
+
+        {{if $data.reside_3_month}}
+        <div class="z_list_wrap">
+            <h2 class="z_main_hd"><i class="line"></i>3个月内入住<a href="{{$smarty.const.ITEM_URL}}/{{$data.city_info.city_code}}/reside_3_month/#wt_source=pc_phb_list_more" class="more" title="更多">更多<i></i></a></h2>
+            <div class="z_sug_list">
+                <ul class="clearfix">
+                    {{foreach $data.reside_3_month key=key item=item}}
+                    <li>
+                        <a href="{{$smarty.const.ITEM_URL}}/{{$data.city_info.city_code}}{{$item.hid}}/#wt_source=pc_phb_list_lpxx">
+                            <div class="pic">
+                                <img src="{{$item.house_cover}}" alt="{{$item.name}}" width="190" height="143">
+                                <i class="txt_mask"></i>
+                                <span class="address"><i class="adr_icon"></i><em>[{{$item.district}}]</em>{{$item.address|truncate:10:"..."}}</span>
+
+                                <div class="z_ys_lab_wrap">
+                                    <span class="z_ys_lab">预售证</span>
+                                    <div class="z_mask-1">
+                                        <div class="maskCon">
+                                            <i></i>
+                                            <p>{{$item.licence}}</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="info_wrap">
+                                <p class="info1" title="{{$item.opentime}}">开盘：{{$item.opentime}}</p>
+                                <p class="price"><em>{{$item.price_display.price_type}}{{$item.price_display.price}}</em><i>{{$item.price_display.unit}}</i></p>
+                                <p class="time time1">更新时间：<em>{{$item.price_display.price_time|date_format:"%G-%m-%d"}}</em></p>
+                            </div>
+                        </a>
+                    </li>
+                    {{/foreach}}
+                </ul>
+            </div>
+        </div>
+        {{/if}}
+
+
+        <div class="z_list_wrap">
+            <h2 class="z_main_hd"><i class="line"></i>二手房排行<a href="http://{{$data.esf_city_code}}.esf.leju.com/community/#bi=tg&type=house-pc&pos=house-esfphgd" class="more" title="更多">更多<i></i></a></h2>
+            <div class="z_sug_list">
+                <ul class="clearfix">
+                    {{foreach $data.esf key=key item=item}}
+                    <li>
+                        <a href="{{$item.url}}" target="_blank">
+                            <div class="pic">
+                                <img src="{{$item.image}}" alt="{{$item.communityname}}" width="190" height="143">
+                                <i class="txt_mask"></i>
+                                <span class="address"><i class="adr_icon"></i><em>[{{$item.district}}]</em>{{$item.block|truncate:10:"..."}}</span>
+
+                            </div>
+                            <div class="info_wrap">
+                                <p class="info1" title="{{$item.communityname}}">{{$item.communityname}}</p>
+                                {{if $item.avgprice}}
+                                <p class="price"><em>{{$item.avgprice}}</em><i>元/平方米</i></p>
+                                {{else}}
+                                <p class="price"><em>待定</em><i></i></p>
+                                {{/if}}
+                                <p class="time time1">在手二手房：<em>{{$item.salecount}}</em>套</p>
+                            </div>
+                        </a>
+                    </li>
+                    {{/foreach}}
+                </ul>
+            </div>
+        </div>
+
+        {{if $data.fitment_good}}
+        <div class="z_list_wrap">
+            <h2 class="z_main_hd"><i class="line"></i>精装修<a href="{{$smarty.const.ITEM_URL}}/{{$data.city_info.city_code}}/fitment_good/#wt_source=pc_phb_list_more" class="more" title="更多">更多<i></i></a></h2>
+            <div class="z_sug_list">
+                <ul class="clearfix">
+
+                    {{foreach $data.fitment_good key=key item=item}}
+                    <li>
+                        <a href="{{$smarty.const.ITEM_URL}}/{{$data.city_info.city_code}}{{$item.hid}}/#wt_source=pc_phb_list_lpxx">
+                            <div class="pic">
+                                <img src="{{$item.house_cover}}" alt="{{$item.name}}" width="190" height="143">
+                                <i class="txt_mask"></i>
+                                <span class="address"><i class="adr_icon"></i><em>[{{$item.district}}]</em>{{$item.address|truncate:10:"..."}}</span>
+
+                                <div class="z_ys_lab_wrap">
+                                    <span class="z_ys_lab">预售证</span>
+                                    <div class="z_mask-1">
+                                        <div class="maskCon">
+                                            <i></i>
+                                            <p>{{$item.licence}}</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="info_wrap">
+                                <p class="info1" title="{{$item.opentime}}">开盘：{{$item.opentime}}</p>
+                                <p class="price"><em>{{$item.price_display.price_type}}{{$item.price_display.price}}</em><i>{{$item.price_display.unit}}</i></p>
+                                <p class="time time1">更新时间：<em>{{$item.price_display.price_time|date_format:"%G-%m-%d"}}</em></p>
+                            </div>
+                        </a>
+                    </li>
+                    {{/foreach}}
+                </ul>
+            </div>
+        </div>
+        {{/if}}
+
+
+        {{if $data.rtype1}}
+        <div class="z_list_wrap">
+            <h2 class="z_main_hd"><i class="line"></i>一居<a href="{{$smarty.const.ITEM_URL}}/{{$data.city_info.city_code}}/rtype1/#wt_source=pc_phb_list_more" class="more" title="更多">更多<i></i></a></h2>
+            <div class="z_sug_list">
+                <ul class="clearfix">
+                    {{foreach $data.rtype1 key=key item=item}}
+                    <li>
+                        <a href="{{$smarty.const.ITEM_URL}}/{{$data.city_info.city_code}}{{$item.hid}}/#wt_source=pc_phb_list_lpxx">
+                            <div class="pic">
+                                <img src="{{$item.house_cover}}" alt="{{$item.name}}" width="190" height="143">
+                                <i class="txt_mask"></i>
+                                <span class="address"><i class="adr_icon"></i><em>[{{$item.district}}]</em>{{$item.address|truncate:10:"..."}}</span>
+
+                                <div class="z_ys_lab_wrap">
+                                    <span class="z_ys_lab">预售证</span>
+                                    <div class="z_mask-1">
+                                        <div class="maskCon">
+                                            <i></i>
+                                            <p>{{$item.licence}}</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="info_wrap">
+                                <p class="info1" title="{{$item.opentime}}">开盘：{{$item.opentime}}</p>
+                                <p class="price"><em>{{$item.price_display.price_type}}{{$item.price_display.price}}</em><i>{{$item.price_display.unit}}</i></p>
+                                <p class="time time1">更新时间：<em>{{$item.price_display.price_time|date_format:"%G-%m-%d"}}</em></p>
+                            </div>
+                        </a>
+                    </li>
+                    {{/foreach}}
+                </ul>
+            </div>
+        </div>
+        {{/if}}
+
+        {{if $data.rtype2}}
+        <div class="z_list_wrap">
+            <h2 class="z_main_hd"><i class="line"></i>两居<a href="{{$smarty.const.ITEM_URL}}/{{$data.city_info.city_code}}/rtype2/#wt_source=pc_phb_list_more" class="more" title="更多">更多<i></i></a></h2>
+            <div class="z_sug_list">
+                <ul class="clearfix">
+                    {{foreach $data.rtype2 key=key item=item}}
+                    <li>
+                        <a href="{{$smarty.const.ITEM_URL}}/{{$data.city_info.city_code}}{{$item.hid}}/#wt_source=pc_phb_list_lpxx">
+                            <div class="pic">
+                                <img src="{{$item.house_cover}}" alt="{{$item.name}}" width="190" height="143">
+                                <i class="txt_mask"></i>
+                                <span class="address"><i class="adr_icon"></i><em>[{{$item.district}}]</em>{{$item.address|truncate:10:"..."}}</span>
+
+                                <div class="z_ys_lab_wrap">
+                                    <span class="z_ys_lab">预售证</span>
+                                    <div class="z_mask-1">
+                                        <div class="maskCon">
+                                            <i></i>
+                                            <p>{{$item.licence}}</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="info_wrap">
+                                <p class="info1" title="{{$item.opentime}}">开盘：{{$item.opentime}}</p>
+                                <p class="price"><em>{{$item.price_display.price_type}}{{$item.price_display.price}}</em><i>{{$item.price_display.unit}}</i></p>
+                                <p class="time time1">更新时间：<em>{{$item.price_display.price_time|date_format:"%G-%m-%d"}}</em></p>
+                            </div>
+                        </a>
+                    </li>
+                    {{/foreach}}
+                </ul>
+            </div>
+        </div>
+        {{/if}}
+
+        {{foreach $data.price_range_house_list key=key item=item}}
+            <div class="z_list_wrap">
+                <h2 class="z_main_hd"><i class="line"></i>{{$key}}<a href="{{$smarty.const.ITEM_URL}}/{{$data.city_info.city_code}}/price_range/{{$item.type_value}}/#wt_source=pc_phb_list_more" class="more" title="更多">更多<i></i></a></h2>
+                <div class="z_sug_list">
+                    <ul class="clearfix">
+                        {{foreach $item.list as $key2=>$item2}}
+                        <li>
+                            <a href="{{$smarty.const.ITEM_URL}}/{{$data.city_info.city_code}}{{$item2.hid}}/#wt_source=pc_phb_list_lpxx">
+                                <div class="pic">
+                                    <img src="{{$item2.house_cover}}" alt="{{$item.name}}" width="190" height="143">
+                                    <i class="txt_mask"></i>
+                                    <span class="address"><i class="adr_icon"></i><em>[{{$item2.district}}]</em>{{$item2.address|truncate:10:"..."}}</span>
+
+                                    <div class="z_ys_lab_wrap">
+                                        <span class="z_ys_lab">预售证</span>
+                                        <div class="z_mask-1">
+                                            <div class="maskCon">
+                                                <i></i>
+                                                <p>{{$item2.licence}}</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="info_wrap">
+                                    <p class="info1" title="{{$item.opentime}}">开盘：{{$item2.opentime}}</p>
+                                    <p class="price"><em>{{$item2.price_display.price_type}}{{$item2.price_display.price}}</em><i>{{$item2.price_display.unit}}</i></p>
+                                    <p class="time time1">更新时间：<em>{{$item2.price_display.price_time|date_format:"%G-%m-%d"}}</em></p>
+                                </div>
+                            </a>
+                        </li>
+                        {{/foreach}}
+                    </ul>
+                </div>
+            </div>
+        {{/foreach}}
+    </div>
+</div>
+<!-- 页尾 -->
+<!-- 页尾 -->
+<!-- 页尾 start-->
+{{include file="layout/footer.html"}}
+<!-- 页尾 end-->
+
+<!--看房团弹框 -->
+<script type="text/html" id="line_enlist">
+    <div class="cpop cpopform" action="kft_box">
+        <input type="hidden" class="kft_aid">
+        <input type="hidden" class="kft_token">
+        <div class="cpformtit">
+            <i class="xikan"></i>
+            <span class="context kft_title">报名看房团：新浪乐居专线看房团</span>
+        </div>
+        <div class="cformcon">
+            <ul class="cformlist cformlistcenter">
+                <li class="clearfix">
+                    <label for="">姓　　名：</label>
+                    <div class="cformri">
+                        <input type="text" class="intext kft_name">
+                    </div>
+                </li>
+                <li class="clearfix">
+                    <label for="">手　　机：</label>
+                    <div class="cformri">
+                        <input type="text" class="intext kft_mobile">
+                    </div>
+                </li>
+                <li class="clearfix">
+                    <label for="">人　　数：</label>
+                    <div class="cformri">
+                        <div class="cpselect">
+                            <span>1人</span>
+                            <i class="cpsicon"></i>
+                            <ul>
+                                <li data-v="1" data-t="1人">1人</li>
+                                <li data-v="2" data-t="2人">2人</li>
+                                <li data-v="3" data-t="3人">3人</li>
+                                <li data-v="4" data-t="4人">4人</li>
+                                <li data-v="5" data-t="5人">5人</li>
+                                <li data-v="6" data-t="6人">6人</li>
+                                <li data-v="7" data-t="7人">7人</li>
+                                <li data-v="8" data-t="8人">8人</li>
+                                <li data-v="9" data-t="9人">9人</li>
+                            </ul>
+                        </div>
+                        <input type="hidden" class="kft_signupnum" value="1">
+                    </div>
+                </li>
+                <li class="clearfix">
+                    <label for="">看房路线：</label>
+                    <div class="cformri">
+                        <div class="cpselect">
+                            <span>1人</span>
+                            <i class="cpsicon"></i>
+                            <ul>
+                                <li>1人</li>
+                                <li>2人</li>
+                                <li>3人</li>
+                            </ul>
+                        </div>
+                        <input type="hidden" class="kft_lid" value="1" >
+                    </div>
+                </li>
+                <li class="clearfix">
+                    <label for="">验 证 码 ：</label>
+                    <div class="cformri">
+                        <input type="text" class="intextShort kft_mcodel">
+                        <span class="btnval1 kft_cbtn1">免费获取</span>
+                        <span class="btnval2 kft_cbtn2" style="display:none;">重新获取</span>
+                        <span class="btnval3 kft_cbtn3" style="display:none;">已发送(60s)</span>
+                        <input type="hidden" class="kft_mcode">
+                    </div>
+                </li>
+            </ul>
+        </div>
+        <div class="cpoptip">
+            <p><em>* </em>姓名和手机号介时将成为确认您身份的唯一方法，请用真实姓名参加活动。</p>
+            <p><em>* </em>报名成功后会有乐居工作人员与您确认相关信息，您的信息将之用于参加乐居看房团的活动，乐居将会对您的信息进行保密。</p>
+        </div>
+        <div class="popbtnwrap">
+            <span class="btnred kft_enlist">立即报名</span>
+        </div>
+        <em class="btnclose kft_close">x</em>
+    </div>
+</script>
+<!--看房团成功弹框 -->
+<script type="text/html" id="line_yes">
+    <div class="cpop cpoptext">
+        <div class="cpopcon clearfix">
+            <i class="xisuccess"></i>
+            <span class="context">报名成功</span>
+        </div>
+        <div class="popbtnwrap">
+            <span class="btnred kft_close">确 定</span>
+        </div>
+        <em class="btnclose kft_close">x</em>
+    </div>
+</script>
+
+<script type="text/javascript">
+    var city = '{{$data.city_info.city_en}}';
+    var level1_page = 'house';
+    var level2_page = 'top';
+    var level3_page = 'index';
+    var custom_id = '';
+    var news_origin = '';
+    function dcsMultiTrack () {
+
+    }
+</script>
+
+
+<script type="text/javascript" src="http://m.leju.com/resources/scripts/gather.pc.source.js"></script>
+
+</body>
+
+<script src="http://cdn.leju.com/page_publicSource/js/lib/LET;data_house/V2/build/js/subHouseRank.js?r"></script>
+</html>

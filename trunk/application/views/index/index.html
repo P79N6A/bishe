@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <base target="_blank" />
+    <title>乐居买房-要买房上乐居，省钱又省心</title>
+    <meta name="Keywords" content="房价,楼盘,楼市,新房,楼盘网,新楼盘,楼盘地图,楼盘介绍,新楼盘信息,户型图"/>
+    <meta name="Description" content="乐居为您提供最新房价，全国各地楼盘、楼市、新房价格等信息，并提供最新、热门、打折、团购楼盘搜索,精美户型图、样板间图片、楼盘地图,详细的楼盘信息介绍，覆盖全中国的房地产楼盘数据库。"/>
+    <link rel="canonical"  href="{{$canonical}}" />
+    <link rel="stylesheet" href="http://cdn.leju.com/data_house/V2/build/css/1118houseSecond.css">
+</head>
+<body>
+<!-- 搜索页页头 -->
+{{include file="layout/housenav.html"}}
+
+
+
+<div class="l_wrap clearfix">
+    <h2 class="z_main_hd l_mt24"><i class="line"></i>买房</h2>
+    <div class="l_box01">
+        <div class="l_head l_head01">
+            <span>按字母排序</span>
+            <div class="l_ovh">
+                {{foreach $data.city_list key=key item=item}}
+                    <a href="#{{$key}}" target="_self">{{$key}}</a>
+                {{/foreach}}
+            </div>
+        </div>
+        <div class="l_letr">
+
+            {{foreach $data.city_list key=key item=item}}
+                <div class="l_letr_box">
+                    <!-- 高亮添加class="l_cur" -->
+                    <h3><a href="javascript:void(0)" target="_self" name="{{$key}}">{{$key}}</a></h3>
+                    <div class="l_ovh">
+                        {{foreach $item key=key2 item=item2}}
+                            <dl>
+                                <dt><a href="{{$smarty.const.ITEM_URL}}/{{$item2.city_code}}/#wt_source=pc_csss_mf_lpph" target="_blank">{{$item2.city_cn}}新房</a></dt>
+                                <dd>
+                                    <a href="{{$smarty.const.ITEM_URL}}/{{$item2.city_code}}/new/#wt_source=pc_csss_mf_zxlp" target="_blank">最新楼盘TOP100</a>
+                                    <a href="{{$smarty.const.ITEM_URL}}/{{$item2.city_code}}/hot/#wt_source=pc_csss_mf_rmlp" target="_blank">热门楼盘TOP100</a>
+                                    <a href="{{$smarty.const.ITEM_URL}}/{{$item2.city_code}}/kaipan/#wt_source=pc_csss_mf_bykp" target="_blank">本月开盘楼盘</a>
+                                    <a href="{{$smarty.const.ITEM_URL}}/{{$item2.city_code}}/search/" target="_blank">{{$item2.city_cn}}楼盘</a>
+                                    <a href="{{$smarty.const.ITEM_URL}}/{{$item2.city_code}}/price/#wt_source=pc_csss_mf_zjjlp" target="_blank">{{$item2.city_cn}}房价</a>
+                                    <a href="{{$smarty.const.ITEM_URL}}/{{$item2.city_code}}/search_advance/#wt_source=pc_csss_mf_gjss" target="_blank">楼盘高级搜索</a>
+                                </dd>
+                            </dl>
+                        {{/foreach}}
+                    </div>
+                </div>
+            {{/foreach}}
+        </div>
+    </div>
+</div>
+
+
+<!-- 页尾 -->
+<!-- 页尾 start-->
+{{include file="layout/footer.html"}}
+<!-- 页尾 end-->
+
+<script type="text/html" id="line_yes">
+    <div class="cpop cpoptext">
+        <div class="cpopcon clearfix">
+            <i class="xisuccess"></i>
+            <span class="context">报名成功</span>
+        </div>
+        <div class="popbtnwrap">
+            <span class="btnred kft_close">确 定</span>
+        </div>
+        <em class="btnclose kft_close">x</em>
+    </div>
+</script>
+
+<script type="text/javascript">
+    var city = '{{$data.city_info.city_en}}';
+    var level1_page = 'house';
+    var level2_page = 'all';
+    var level3_page = 'index';
+    var custom_id = '';
+    var news_origin = '';
+    function dcsMultiTrack () {
+
+    }
+</script>
+
+<script type="text/javascript" src="http://m.leju.com/resources/scripts/gather.pc.source.js"></script>
+
+</body>
+</html>
